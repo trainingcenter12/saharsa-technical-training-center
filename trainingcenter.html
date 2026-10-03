@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@main/training-center-exterior.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
 /* FIX #1 + #2: shared type-scale and radius tokens */
 :root{--o:#E85B16;--oh:#C7470D;--ol:#FFF4EC;--k:#0A0A0B;--t:#3F3F46;--s:#71717A;--b:#E7E5E4;--alt:#FAF9F7;--e:cubic-bezier(.2,.7,.2,1);
@@ -494,21 +494,32 @@ nav .btn:hover{background:var(--k);border-color:var(--k);box-shadow:0 14px 30px 
 .cs-l li.ph{color:var(--s)}.cs-l li:hover,.cs-l li.act{background:var(--ol);color:var(--oh)}
 .cs-l li.on{color:var(--o);font-weight:700}.cs-l li.on:after{content:"";margin-left:auto;width:14px;height:7px;border-left:2.5px solid var(--o);border-bottom:2.5px solid var(--o);transform:rotate(-45deg) translateY(-2px);flex:none}
 
-/* ===== ADMISSION COUNTDOWN ===== */
-.adm{padding:clamp(48px,7vw,84px) 0}
-.admb{position:relative;overflow:hidden;border-radius:var(--rl);padding:clamp(26px,5vw,64px);display:grid;gap:34px;align-items:center;color:#a1a1aa;background:radial-gradient(700px 360px at 100% 0,#e85b1666,transparent 60%),radial-gradient(500px 300px at 0 100%,#e85b1633,transparent 60%),var(--k);box-shadow:0 40px 80px #0a0a0b33}
-@media(min-width:960px){.admb{grid-template-columns:1fr 1.15fr}}
-.admb:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff14 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,#000,transparent);mask-image:linear-gradient(180deg,#000,transparent);pointer-events:none}
-.admb>div{position:relative}.admb h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.7rem)}.admb p{margin:0 0 18px;max-width:46ch}.admb p b{color:#fff}
-.seats{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 26px}
-.seats i{width:24px;height:30px;border-radius:9px 9px 4px 4px;background:var(--o);box-shadow:0 6px 14px #e85b1666;animation:seat 2.6s ease-in-out infinite;animation-delay:calc(var(--i)*.15s)}
-.seats span{margin-left:10px;color:#fff;font-weight:700}
-@keyframes seat{50%{transform:translateY(-3px);opacity:.7}}
-.cdg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.cdc{border:1px solid #ffffff22;border-radius:18px;background:linear-gradient(160deg,#ffffff14,#ffffff05);padding:clamp(14px,3vw,28px) 4px;text-align:center}
-.cdc b{display:block;font:800 clamp(2rem,7.2vw,4.2rem)/1 "Bricolage Grotesque";color:#fff;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.cdc small{display:block;margin-top:8px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#a1a1aa}
-.cdc.hl{background:linear-gradient(160deg,var(--o),#f27a35);border-color:transparent;box-shadow:0 20px 44px #e85b1655}.cdc.hl small{color:#ffe6d6}
+/* ===== ADMISSION COUNTDOWN (clean corporate) ===== */
+.adm{padding:clamp(40px,6vw,76px) 0}
+.admb{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:clamp(24px,4.5vw,56px);display:grid;gap:clamp(26px,4vw,52px);align-items:center;color:#a1a1aa;background:linear-gradient(135deg,#17171a 0%,#0a0a0b 62%);border:1px solid #ffffff14;box-shadow:0 30px 70px #0a0a0b33}
+@media(min-width:960px){.admb{grid-template-columns:1.1fr 1fr}}
+.admb:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--o),#ffb27a 45%,transparent 85%)}
+.admb>div{position:relative}
+.admb h2{color:#fff;font-size:clamp(1.5rem,3vw,2.3rem);margin-bottom:12px}
+.admb p{margin:0;max-width:46ch}
+.adl{list-style:none;margin:24px 0 28px;padding:0;display:grid;gap:14px}
+.adl li{display:flex;align-items:center;gap:14px}
+.adi{width:42px;height:42px;flex:none;border-radius:12px;border:1px solid #ffffff1f;background:#ffffff08;color:#e4e4e7;display:grid;place-items:center}
+.adi svg{width:20px;height:20px;stroke-width:1.5}
+.adl small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#71717a;line-height:1.4}
+.adl b{display:block;color:#fff;font-weight:600;font-size:1rem;line-height:1.4}
+.cdp{border:1px solid #ffffff1a;border-radius:20px;background:#ffffff06;padding:clamp(18px,3vw,26px)}
+.cdh{display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#a1a1aa;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid #ffffff14}
+.cdh svg{width:16px;height:16px;stroke-width:1.6;color:#d4d4d8}
+.cdg{display:grid;grid-template-columns:repeat(4,1fr)}
+.cdc{position:relative;text-align:center;padding:18px 4px}
+.cdc+.cdc:before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:#ffffff1a}
+.cdc b{display:block;font:700 clamp(1.6rem,6.6vw,2.5rem)/1 "Bricolage Grotesque",system-ui,sans-serif;color:#fff;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cdc small{display:block;margin-top:9px;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#71717a}
+.cdf{display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #ffffff14;font-size:var(--fs-sm);color:#a1a1aa}
+.cdf svg{width:16px;height:16px;stroke-width:1.6;color:#d4d4d8}
+.cdf a{color:#fff;font-weight:600;border-bottom:1px solid #ffffff4d;transition:border-color .3s}
+.cdf a:hover{border-color:var(--o)}
 
 /* ===== PREMIUM MOTION ===== */
 .hg:before,.hg:after{content:"";position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:-1}
@@ -517,6 +528,26 @@ nav .btn:hover{background:var(--k);border-color:var(--k);box-shadow:0 14px 30px 
 @keyframes orb{to{transform:translate(40px,30px) scale(1.15)}}
 @keyframes nudge{50%{transform:translateX(4px)}}
 .cta .btn:not(.o) svg,.admt .btn svg{animation:nudge 2.2s ease-in-out infinite}
+
+/* ===== FAST LOAD: lazy placeholder + quick loader fade ===== */
+.lz{min-height:360px}
+#ld{transition:opacity .25s var(--e),visibility .25s}
+
+/* ===== TIMELINE: clean professional rail ===== */
+.tlv{gap:0;counter-reset:st}
+.tlv:before{left:19px;width:1px;background:var(--b)}
+.tlv .fill{left:18px;width:3px;background:var(--o);border-radius:3px}
+.ti{counter-increment:st;padding-left:68px;padding-bottom:24px}
+.ti:last-child{padding-bottom:0}
+.nd{width:40px;height:40px;border-radius:12px;font-size:0;background:#fff;border:1px solid var(--b);color:var(--s);box-shadow:0 1px 2px #0a0a0b0d}
+.nd:after{content:counter(st,decimal-leading-zero);font:700 .8rem "DM Sans",system-ui,sans-serif;letter-spacing:.04em}
+.ti.on .nd{background:var(--o);border-color:var(--o);color:#fff;box-shadow:0 8px 18px #e85b1640;animation:none}
+.tc{background:#fff;border:1px solid var(--b);border-radius:14px;padding:18px 22px;opacity:.55;box-shadow:none}
+.tc:after{display:none}
+.ti.on .tc{opacity:1;border-color:#f1d3bd;box-shadow:0 10px 28px #0a0a0b0d}
+.tc h3{font-size:1.1rem;margin-bottom:4px}
+.tc h3:before{content:"Step " counter(st,decimal-leading-zero);display:block;font:700 .66rem "DM Sans",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:6px}
+.tc:hover{transform:none}
 </style>
 <link rel="icon" href="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@main/sttc_logo.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["EducationalOrganization","LocalBusiness"],"name":"Saharsa Technical Training Centre","alternateName":["STTC Saharsa","Technician Training Centre Saharsa"],"description":"Technician training centre for practical home-appliance repair in Saharsa, Bihar: AC, refrigerator, washing machine, geyser, microwave and RO courses.","image":"https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@main/training-center-exterior.png","areaServed":["Saharsa","Bihar"],"logo":"https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@main/sttc_logo.png","telephone":["+91-7004074214","+91-7739287877"],"knowsAbout":["Technician training","Home appliance repair training","AC repair training","Refrigerator repair training","Washing machine repair training","RO water purifier repair training"],"address":{"@type":"PostalAddress","streetAddress":"Kahara Kutti, Bangaon Road","addressLocality":"Saharsa","addressRegion":"Bihar","postalCode":"852201","addressCountry":"IN"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is the technician training centre in Saharsa?","acceptedAnswer":{"@type":"Answer","text":"Saharsa Technical Training Centre is at Kahara Kutti, Bangaon Road, Saharsa 852201, Bihar."}},{"@type":"Question","name":"Which home appliance repair courses are available?","acceptedAnswer":{"@type":"Answer","text":"AC, refrigerator, washing machine, geyser and water heater, microwave oven, RO water purifier and general home appliance repair."}},{"@type":"Question","name":"Is the training practical?","acceptedAnswer":{"@type":"Answer","text":"Yes. Learning combines classroom theory with practical workshop sessions guided by trainers."}}]}]}</script>
 </head>
@@ -573,27 +604,35 @@ function bindRf(){const f=$("#rf");if(!f)return;f.onsubmit=async e=>{e.preventDe
 s("re1",g("rn").length<2?(bad=1,"Please enter your name."):"");s("re2",g("rt").length<10?(bad=1,"Please write at least 10 characters."):"");if(bad)return;
 const b=f.querySelector("button"),o=$("#rout");b.disabled=true;o.style.display="block";o.textContent="Submitting...";
 try{await sbIns("reviews",{name:g("rn"),course:g("rc")||null,rating:+g("rr")||5,text:g("rt"),approved:false});f.reset();o.textContent="Thank you! Your review has been received and will appear after approval."}catch(err){o.textContent="Could not submit right now. Please try again later.";b.disabled=false}}}
-async function loadRev(){const box=$("#rvs");if(!box)return;let l=[];try{l=await sbGet("reviews?select=name,course,rating,text&approved=eq.true&order=created_at.desc&limit=30")}catch(e){}
-if(l.length){box.innerHTML=revInner(l);obs("#rvs");enhSel("#rvs")}bindRf()}
+/* CACHE: Supabase data localStorage mein. 10 min tak fresh = koi request nahi. Purana ho to turant dikhao + background mein refresh */
+const TTL=6e5,ckey=q=>"sttc:v1:"+q;
+function cget(q){try{const o=JSON.parse(localStorage.getItem(ckey(q)));return o&&o.d!=null?o:null}catch(e){return null}}
+function cset(q,d){try{localStorage.setItem(ckey(q),JSON.stringify({t:Date.now(),d}))}catch(e){try{Object.keys(localStorage).filter(k=>k.indexOf("sttc:v1:")===0).forEach(k=>localStorage.removeItem(k));localStorage.setItem(ckey(q),JSON.stringify({t:Date.now(),d}))}catch(e2){}}}
+async function sbC(q,paint){const c=cget(q);if(c){paint(c.d);if(Date.now()-c.t<TTL)return}
+const d=await sbGet(q);cset(q,d);if(!c||JSON.stringify(c.d)!==JSON.stringify(d))paint(d)}
+async function sbF(q){const c=cget(q);if(c&&Date.now()-c.t<TTL)return c.d;try{const d=await sbGet(q);cset(q,d);return d}catch(e){if(c)return c.d;throw e}}
+async function loadRev(){const box=$("#rvs");if(!box)return;bindRf();
+const paint=l=>{if(l.length){box.innerHTML=revInner(l);obs("#rvs");enhSel("#rvs")}bindRf()};
+try{await sbC("reviews?select=name,course,rating,text&approved=eq.true&order=created_at.desc&limit=30",paint)}catch(e){}}
 const AL="students?select=slug,name,course_code,course_name,grade,completed_on,register_no,photo_path&published=eq.true&order=register_no.desc";
 const cnt=(el,n)=>{if(!el)return;if(matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=n;return}let t0=null;const f=t=>{t0=t0||t;const p=Math.min(1,(t-t0)/1100);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
-async function loadHome(){const hs=$("#hs");try{const st=await sbGet(AL+"&limit=4");
-if(st.length&&hs){hs.innerHTML=`<section><div class="w"><div class="two" style="align-items:end;margin-bottom:46px"><div><div class="ey rv">Our alumni</div><h2 class="rv l" style="margin:0">Trained here. <em>Certified</em> here.</h2></div><p class="lead rv r2" style="margin:0">Meet students who completed their training at the institute. Open a profile to see their certificate and work.</p></div><div class="grid ag">${st.map(scard).join("")}</div><p style="margin-top:36px" class="rv"><a class="btn o" href="#/alumni">View All Alumni ${ARW}</a></p></div></section>`;obs("#hs")}}catch(e){}
-loadRev()}
+async function loadHome(){const hs=$("#hs");if(!hs)return;
+const paint=st=>{if(st.length){hs.innerHTML=`<section><div class="w"><div class="two" style="align-items:end;margin-bottom:46px"><div><div class="ey rv">Our alumni</div><h2 class="rv l" style="margin:0">Trained here. <em>Certified</em> here.</h2></div><p class="lead rv r2" style="margin:0">Meet students who completed their training at the institute. Open a profile to see their certificate and work.</p></div><div class="grid ag">${st.map(scard).join("")}</div><p style="margin-top:36px" class="rv"><a class="btn o" href="#/alumni">View All Alumni ${ARW}</a></p></div></section>`;obs("#hs")}};
+try{await sbC(AL+"&limit=4",paint)}catch(e){}}
 let ALLS=[];
 async function loadStudents(){const box=$("#sl");if(!box)return;
-try{ALLS=await sbGet(AL)}catch(e){box.innerHTML='<p class="lead">Could not load alumni right now. Please try again later.</p>';return}
+const paint=data=>{ALLS=data;
 if(!ALLS.length){box.innerHTML='<p class="lead">Alumni profiles will be added soon.</p>';return}
 const codes=[...new Set(ALLS.map(s=>s.course_code).filter(Boolean))];
 $("#scf").innerHTML=codes.length>1?`<button class="on" data-cf="">All</button>`+codes.map(c=>`<button data-cf="${esc(c)}">${esc(c)}</button>`).join(""):"";
 let cf="";const draw=()=>{const q=$("#sq").value.trim().toLowerCase();const l=ALLS.filter(s=>(!cf||s.course_code===cf)&&(!q||(s.name+" "+(s.register_no||"")).toLowerCase().includes(q)));$("#scn").textContent=l.length+" of "+ALLS.length+" alumni";box.innerHTML=l.length?l.map(scard).join(""):'<p class="lead">No alumni found.</p>';obs("#sl")};
-$$("[data-cf]").forEach(b=>b.onclick=()=>{cf=b.dataset.cf;$$("[data-cf]").forEach(x=>x.classList.toggle("on",x===b));draw()});$("#sq").oninput=draw;draw()}
+$$("[data-cf]").forEach(b=>b.onclick=()=>{cf=b.dataset.cf;$$("[data-cf]").forEach(x=>x.classList.toggle("on",x===b));draw()});$("#sq").oninput=draw;draw()};
+try{await sbC(AL,paint)}catch(e){if(!box.querySelector(".ac"))box.innerHTML='<p class="lead">Could not load alumni right now. Please try again later.</p>'}}
 const stMsg=(t,m)=>`<section class="ph nf"><div class="w"><div class="crumb"><a href="#/">Home</a> / <a href="#/alumni">Alumni</a></div><h1>${t}</h1><p class="lead">${m}</p><div class="cta" style="margin-top:28px"><a class="btn" href="#/alumni">All Alumni ${ARW}</a></div></div></section>`;
 async function loadStudent(slug){const box=$("#sd");if(!box)return;let s;
-try{const r=await sbGet("students?slug=eq."+encodeURIComponent(slug)+"&published=eq.true&select=*&limit=1");s=r[0]}catch(e){box.innerHTML=stMsg("Could not load this profile","Please check your internet connection and try again.");return}
+try{const r=await sbF("students?slug=eq."+encodeURIComponent(slug)+"&published=eq.true&select=*&limit=1");s=r[0]}catch(e){box.innerHTML=stMsg("Could not load this profile","Please check your internet connection and try again.");return}
 if(!s){box.innerHTML=stMsg("Profile not found","This profile does not exist or is no longer available.");return}
-let rv=[],more=[];try{rv=await sbGet("reviews?student_id=eq."+s.id+"&approved=eq.true&select=name,course,rating,text&order=created_at.desc")}catch(e){}
-try{more=await sbGet(AL+"&slug=neq."+encodeURIComponent(s.slug)+"&limit=4")}catch(e){}
+let rv=[],more=[];[rv,more]=await Promise.all([sbF("reviews?student_id=eq."+s.id+"&approved=eq.true&select=name,course,rating,text&order=created_at.desc").catch(()=>[]),sbF(AL+"&slug=neq."+encodeURIComponent(s.slug)+"&limit=4").catch(()=>[])]);
 document.title=s.name+" | Alumni | Saharsa Technical Training Centre";$("meta[name=description]").content=s.name+" completed "+(s.course_name||s.course_code||"training")+" at Saharsa Technical Training Centre.";
 const course=s.course_name?(s.course_code?s.course_name+" ("+s.course_code+")":s.course_name):(s.course_code||""),first=s.name.split(" ")[0];
 const tile=(k,v)=>v?`<div class="stl rv z"><small>${k}</small><b>${esc(v)}</b></div>`:"";
@@ -640,10 +679,11 @@ const FQ=[["Where is the training centre?",`Saharsa Technical Training Centre is
 const faqSec=l=>`<section><div class="w" style="max-width:880px"><div class="ey rv">FAQ</div><h2 class="rv">Frequently asked <em>questions</em></h2>${(l||FQ).map(f=>`<details class="rv"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("")}</div></section>`;
 /* ADMISSION COUNTDOWN: always shows ADM.days days left from today (rolls forward every day). Change days/seats here. */
 const ADM={days:15,seats:6};
-const admSec=n=>`<section class="adm"><div class="w"><div class="admb rv"><div class="admt"><div class="ey">Admissions open</div><h2>${n?`Admissions for ${n} <em>close soon</em>`:`Admissions are open. <em>Reserve your seat</em>`}</h2><p>The current batch closes on <b data-cd="date"></b>. Only <b>${ADM.seats} seats</b> are left, so enquire early to confirm yours.</p><div class="seats" aria-label="${ADM.seats} seats left">${Array.from({length:ADM.seats},(_,i)=>`<i style="--i:${i}"></i>`).join("")}<span>${ADM.seats} seats left</span></div><a class="btn" href="#/contact">Reserve a seat ${ARW}</a></div><div class="cdg" role="timer" aria-label="Time left for admissions">${[["d","Days",1],["h","Hours"],["m","Minutes"],["s","Seconds"]].map(x=>`<div class="cdc${x[2]?" hl":""}"><b data-cd="${x[0]}">00</b><small>${x[1]}</small></div>`).join("")}</div></div></div></section>`;
+const admSvg=p=>'<svg class="i" viewBox="0 0 24 24">'+p+'</svg>';
+const admSec=n=>`<section class="adm"><div class="w"><div class="admb rv"><div class="admt"><div class="ey">Admissions open</div><h2>${n?`Admissions for ${n} <em>close soon</em>`:`Admissions are open. <em>Reserve your seat</em>`}</h2><p>Enquire early to confirm your place in the current batch. Seats are limited.</p><ul class="adl"><li><span class="adi">${admSvg('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>')}</span><span><small>Batch closes on</small><b data-cd="date"></b></span></li><li><span class="adi">${admSvg('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.9c1.6.8 2.7 2.4 3 5.1"/>')}</span><span><small>Seats remaining</small><b>${ADM.seats} seats</b></span></li></ul><a class="btn" href="#/contact">Reserve a seat ${ARW}</a></div><div class="cdp" role="timer" aria-label="Time left for admissions"><div class="cdh">${admSvg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')}Time remaining</div><div class="cdg">${[["d","Days"],["h","Hours"],["m","Minutes"],["s","Seconds"]].map(x=>`<div class="cdc"><b data-cd="${x[0]}">00</b><small>${x[1]}</small></div>`).join("")}</div><div class="cdf">${admSvg(IC.phone)}<span>Call <a href="tel:+917004074214">7004074214</a> to confirm your seat</span></div></div></div></div></section>`;
 function cdTick(){const n=new Date(),e=new Date(n.getFullYear(),n.getMonth(),n.getDate()+ADM.days,23,59,59),ms=Math.max(0,e-n),v={d:Math.floor(ms/864e5),h:Math.floor(ms%864e5/36e5),m:Math.floor(ms%36e5/6e4),s:Math.floor(ms%6e4/1e3),date:e.toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"})};$$("[data-cd]").forEach(x=>{const r=v[x.dataset.cd];x.textContent=typeof r==="number"?String(r).padStart(2,"0"):r})}
 /* CUSTOM DROPDOWN: wraps every <select>, keeps the real select hidden so values/forms work as before */
-function enhSel(root){$$(root+" select").forEach(s=>{if(s.dataset.cs)return;s.dataset.cs=1;
+function enhSel(root){(typeof root==="string"?$$(root+" select"):[...root.querySelectorAll("select")]).forEach(s=>{if(s.dataset.cs)return;s.dataset.cs=1;
 const w=document.createElement("div");w.className="cs";s.parentNode.insertBefore(w,s);w.appendChild(s);s.classList.add("cs-n");s.tabIndex=-1;s.setAttribute("aria-hidden","true");
 const b=document.createElement("button");b.type="button";b.className="cs-b";b.setAttribute("aria-haspopup","listbox");b.setAttribute("aria-expanded","false");
 const lab=s.id&&document.querySelector('label[for="'+s.id+'"]');if(lab){lab.removeAttribute("for");lab.onclick=()=>b.focus()}
@@ -675,7 +715,7 @@ ${tlSec("Your journey","From first call to <em>your own work</em>",[["Explore th
 ${careerSec()}
 <section><div class="w two r"><div class="fr rv"><div class="p">${img("trainer-guiding-students.png","Trainer guiding students during practical work")}</div></div><div><div class="ey rv">Practical learning</div><h2 class="rv l">Trainer-guided <em>practice</em></h2><p class="lead rv l">Classroom theory is followed by workshop sessions where learners apply concepts to real appliance faults.</p><ul class="ck rv l" style="margin-top:18px"><li>Real appliance systems and components</li><li>Testing with a multimeter and other tools</li><li>Guided fault-finding exercises</li><li>Safe repair and servicing practice</li></ul><p style="margin-top:26px" class="rv"><a class="btn o" href="#/gallery">See the Gallery ${ARW}</a></p></div></div></section>
 <section class="alt"><div class="w"><div class="ey rv">A look inside</div><h2 class="rv">Our <em>training</em> in pictures</h2><div class="sh rv z" id="car" style="margin-top:40px" role="region" aria-roledescription="carousel" aria-label="Training photos">${SH.map(x=>`<div class="sl">${img(x[0],x[1])}<span>${x[1]}</span></div>`).join("")}<button class="ar p" aria-label="Previous"><svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button class="ar nx" aria-label="Next"><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div><div class="dots" id="dots">${SH.map((_,i)=>`<button aria-label="Slide ${i+1}"></button>`).join("")}</div></div></section>
-<div id="hs"></div>${revSec()}${faqSec()}${visitSec()}${band}`,a:()=>loadHome()},
+<div id="hs"></div>${revSec()}${faqSec()}${visitSec()}${band}`},
 "about":{t:"About Us | Technician Training Centre in Saharsa | Saharsa Technical Training Centre",d:"About Saharsa Technical Training Centre, a practical home-appliance repair training institute and technician training centre in Saharsa, Bihar.",h:()=>head("About the institute","A practical home-appliance repair training centre in Saharsa, Bihar.","About")+`
 <section><div class="w two"><div><div class="ey rv">Who we are</div><h2 class="rv l">Training built around <em>practice</em></h2><p class="rv l">Saharsa Technical Training Centre is a training institute at Kahara Kutti, Bangaon Road, Saharsa, focused on practical home-appliance repair training for people who want to learn a hands-on technical skill.</p><p class="rv l">Learning combines classroom theory with workshop practice, so learners understand how appliances work and how to diagnose faults.</p><p class="rv l">Our tagline says it best: practical skills, better opportunities.</p><a class="btn rv" href="#/courses">View Courses ${ARW}</a></div><div class="fr rv"><div class="p">${img("training-center-interior.png","Training centre interior",false)}</div></div></div></section>
 <section class="alt"><div class="w"><div class="ey rv">At the centre</div><h2 class="rv">Where learning <em>happens</em></h2><div class="tri" style="margin-top:42px">${[["classroom-theory-training.png","Classroom theory sessions"],["workshop-practical-session.png","Practical workshop sessions"],["practical-training-tools.png","Tools for hands-on practice"]].map(x=>`<figure class="rv z"><div class="p">${img(x[0],x[1])}</div><figcaption>${x[1]}</figcaption></figure>`).join("")}</div></div></section>
@@ -708,10 +748,22 @@ $("#mb").onclick=()=>menu(!$("#nv").classList.contains("open"));$("#sc").onclick
 function route(){clearInterval(tm);let h=location.hash.replace(/^#\/?/,"").replace(/\/$/,""),p=h.split("/").map((x,i)=>i===0&&x==="students"?"alumni":x),pg;
 if(p[0]==="courses"&&p[1]){const c=C.find(x=>x.s===p[1]);pg=c?courseP(c):null}else if(p[0]==="alumni"&&p[1]){let sl=p[1];try{sl=decodeURIComponent(p[1])}catch(e){}pg=studentP(sl)}else pg=P[p[0]||""];
 if(!pg)pg={t:"Page not found | Saharsa Technical Training Centre",d:"Page not found.",h:()=>`<section class="ph nf"><div class="w"><div class="crumb"><a href="#/">Home</a> / 404</div><div class="n4" aria-hidden="true">404</div><h1>Page not found</h1><p class="lead">The page you are looking for does not exist or has moved. Explore our courses or call the institute.</p><div class="cta" style="margin-top:28px"><a class="btn" href="#/">Back to Home ${ARW}</a><a class="btn o" href="#/courses">View Courses</a></div></div></section>`};
-const a=$("#app");a.innerHTML=`<div class="view">${pg.h()}</div>`;document.title=pg.t;$("meta[name=description]").content=pg.d;$("meta[property='og:title']").content=pg.t;$("meta[property='og:description']").content=pg.d;
+const a=$("#app");a.innerHTML=`<div class="view"></div>`;mountLazy(a.firstChild,pg.h(),p[0]?2:3);document.title=pg.t;$("meta[name=description]").content=pg.d;$("meta[property='og:title']").content=pg.t;$("meta[property='og:description']").content=pg.d;
 $$("nav a.l").forEach(l=>{const on=l.dataset.r===(p[0]||"");l.classList.toggle("on",on);on?l.setAttribute("aria-current","page"):l.removeAttribute("aria-current")});menu(false);const de=document.documentElement;de.style.scrollBehavior="auto";scrollTo(0,0);de.style.scrollBehavior="";hd.style.transform="";ly=0;sc();init();if(pg.a)pg.a()}
-function init(){initX();enhSel("#app");cdTick();$$(".rv").forEach(e=>{const sib=[...e.parentElement.children].indexOf(e);if(/grid|fe|steps|gal/.test(e.parentElement.className))e.style.setProperty("--d",(sib%4)*.09+"s");io.observe(e)});
-const car=$("#car");if(car){const sl=$$("#car .sl"),ds=$$("#dots button");let i=0,pz=false,sx=null;const go=k=>{i=(k+sl.length)%sl.length;sl.forEach((s,j)=>s.classList.toggle("on",j===i));ds.forEach((d,j)=>d.classList.toggle("on",j===i))};go(0);
+function init(){initX();wire($("#app"))}
+const qa=(r,s)=>[...(r.matches(s)?[r]:[]),...r.querySelectorAll(s)];
+/* LAZY: pehle keep wale top-level blocks turant, baaki placeholder. Placeholder viewport ke 600px paas aaye tabhi asli section lagta hai */
+let lzIO;
+function mountLazy(view,html,keep){
+if(lzIO)lzIO.disconnect();
+const t=document.createElement("template");t.innerHTML=html;const kids=[...t.content.children];
+if(!("IntersectionObserver" in window)||/bot|crawl|spider|slurp/i.test(navigator.userAgent)||kids.length<=keep){view.append(t.content);if(view.querySelector("#hs"))loadHome();if(view.querySelector("#rvs"))loadRev();return}
+kids.forEach((n,i)=>{if(i<keep)return;const ph=document.createElement("div");ph.className="lz";ph._n=n;n.replaceWith(ph)});
+view.append(t.content);
+lzIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const ph=e.target;lzIO.unobserve(ph);const n=ph._n;ph.replaceWith(n);wire(n);tlUpdate();if(n.id==="hs")loadHome();if(n.id==="rvs")loadRev()}),{rootMargin:"600px 0px"});
+$$(".lz").forEach(x=>lzIO.observe(x))}
+function wire(r){enhSel(r);cdTick();qa(r,".rv").forEach(e=>{const sib=[...e.parentElement.children].indexOf(e);if(/grid|fe|steps|gal/.test(e.parentElement.className))e.style.setProperty("--d",(sib%4)*.09+"s");io.observe(e)});
+const car=r.querySelector("#car");if(car){const sl=$$("#car .sl"),ds=$$("#dots button");let i=0,pz=false,sx=null;const go=k=>{i=(k+sl.length)%sl.length;sl.forEach((s,j)=>s.classList.toggle("on",j===i));ds.forEach((d,j)=>d.classList.toggle("on",j===i))};go(0);
 ds.forEach((d,j)=>d.onclick=()=>{pz=true;go(j)});$("#car .p").onclick=()=>{pz=true;go(i-1)};$("#car .nx").onclick=()=>{pz=true;go(i+1)};
 car.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;pz=true},{passive:true});car.addEventListener("touchend",e=>{if(sx!=null){const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)go(i+(d<0?1:-1));sx=null}});
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches)tm=setInterval(()=>{if(!pz&&!document.hidden)go(i+1)},5500)}
@@ -743,11 +795,9 @@ document.addEventListener("pointermove",e=>{const f=e.target.closest&&e.target.c
 /* FIX #14: parallax now only moves the badge (inset photo removed) */
 addEventListener("mousemove",e=>{const b=$(".hf .badge");if(!b)return;const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;b.style.translate=`${x*20}px ${y*14}px`});
 /* first load: logo loader, then page. Every page change shows the logo loader + bar and the new page opens from the top */
-const ld=$("#ld");let vis=0;try{vis=sessionStorage.getItem("sttc")?1:0;sessionStorage.setItem("sttc","1")}catch(e){}
-let busy=0,pend=0;
-function go(){if(busy){pend=1;return}busy=1;const bar=ld.querySelector(".lb2");ld.classList.remove("h");bar.style.display="none";void bar.offsetWidth;bar.style.display="";
-setTimeout(()=>{route();setTimeout(()=>{ld.classList.add("h");busy=0;if(pend){pend=0;go()}},300)},420)}
-route();setInterval(cdTick,1000);setTimeout(()=>ld.classList.add("h"),vis?350:1250);
+const ld=$("#ld");
+function go(){route()}
+route();setInterval(cdTick,1000);requestAnimationFrame(()=>ld.classList.add("h"));
 addEventListener("hashchange",go);
 </script>
 </body>
