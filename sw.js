@@ -2,7 +2,7 @@
    - HTML pages + same-site files: served instantly from cache, refreshed in the background
    - CDN images, fonts and Supabase photos: cache-first after the first visit
    Bump VERSION to force every visitor to drop the old cache. */
-const VERSION = "sttc-v5";
+const VERSION = "sttc-v6";
 const RT = VERSION + "-rt";
 const SHELL = ["/", "/favicon.png"];
 const CDN = /(^|\.)(cdn\.jsdelivr\.net|fonts\.googleapis\.com|fonts\.gstatic\.com)$/;
