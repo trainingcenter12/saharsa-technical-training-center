@@ -427,6 +427,174 @@ html[lang=hi] .pl .tag{letter-spacing:0}
 .adp{height:8px;border-radius:99px;background:#ffffff1a;overflow:hidden;margin:-12px 0 8px}
 .adp span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--o),#ffb27a)}
 .admb .adq{margin:0 0 24px;font-size:var(--fs-sm);color:#a1a1aa}
+/* ===== PRO POLISH v2 (additive) ===== */
+/* hero action cards: three equal-size items */
+.hacts{display:grid;gap:12px;margin-top:30px;grid-template-columns:1fr;max-width:560px;animation:up .9s .55s var(--e) both}
+@media(min-width:700px){.hacts{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}}
+.hact{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;gap:14px;min-height:90px;padding:12px 14px 12px 14px;border-radius:16px;background:#fff;border:1.5px solid #f3d3bd;color:var(--t);text-align:left;box-shadow:0 10px 24px #0a0a0b0f;transition:.4s var(--e)}
+.hact:hover{transform:translateY(-4px);border-color:var(--o);box-shadow:0 18px 36px #e85b1626}
+.hact .hi{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--ol);color:var(--o);transition:.4s var(--e)}
+.hact .hi svg{width:22px;height:22px}.hact .hi svg.s{fill:currentColor}
+.hact:hover .hi{background:var(--o);color:#fff;transform:rotate(-8deg)}
+.hact .ht{display:block;min-width:0;line-height:1.3}
+.hact .ht b{display:flex;align-items:center;gap:8px;color:var(--k);font:700 1.02rem var(--fh);letter-spacing:-.01em}
+.hact .ht small{display:block;margin-top:3px;color:var(--s);font-size:.78rem;line-height:1.35}
+.hact .ga{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--ol);color:var(--o);transition:.4s var(--e)}
+.hact .ga svg{width:15px;height:15px;transition:transform .35s var(--e)}.hact:hover .ga svg{transform:translateX(3px)}
+.hact:hover .ga{background:var(--o);color:#fff}
+.hact.pri{background:linear-gradient(135deg,var(--o),#f27a35);border-color:transparent;color:#fff;box-shadow:0 14px 30px #e85b1640}
+.hact.pri .hi{background:#ffffff2e;color:#fff}.hact.pri .ht b{color:#fff}.hact.pri .ht small{color:#ffe6d6}.hact.pri .ga{background:#fff;color:var(--o)}
+.hact.pri:hover{background:linear-gradient(135deg,var(--k),#26262b);box-shadow:0 18px 36px #0a0a0b33}.hact.pri:hover .hi{background:var(--o)}.hact.pri:hover .ga{background:var(--o);color:#fff}
+.hact:after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,#ffffff59,transparent);transform:skewX(-20deg);transition:left .8s var(--e);z-index:-1;pointer-events:none}.hact:hover:after{left:130%}
+.hact .hxs svg{width:13px!important;height:13px!important}
+.hacts>.btn{justify-content:center;min-height:90px;border-radius:16px}
+/* smoother blur-in reveal */
+.rv{transition:opacity 1s var(--e),transform 1s var(--e),filter 1s var(--e)}
+.rv.z:not(.in){filter:blur(5px)}.rv.in{filter:none}.rv.dn{transition:.45s var(--e);transition-delay:0s}
+html.lite .rv.z:not(.in){filter:none}
+/* cards: animated accent line on hover */
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--o),#ffb27a);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--e);z-index:4;pointer-events:none}.card:hover:before{transform:scaleX(1)}
+/* best plan: rotating gradient border */
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes ang{to{--ang:360deg}}
+.pl.best:after{content:"";position:absolute;inset:-2px;border-radius:22px;padding:2px;background:conic-gradient(from var(--ang),var(--o),#ffb27a,#fff0e6,var(--o));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ang 6s linear infinite;pointer-events:none}
+/* stats numbers: gradient text */
+.sn b{background:linear-gradient(120deg,var(--o),#ff9a52);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* hero image frame drifts slowly */
+@keyframes drift{to{transform:translate(6px,-8px)}}
+.hf:before{animation:drift 6s ease-in-out infinite alternate}
+/* current timeline step pulses */
+@keyframes ndp{0%{box-shadow:0 0 0 0 #e85b1666}100%{box-shadow:0 0 0 14px #e85b1600}}
+.ti.cur .nd{animation:ndp 2.2s ease-out infinite}
+@media(prefers-reduced-motion:reduce){.pl.best:after,.hf:before,.ti.cur .nd{animation:none!important}.rv.z:not(.in){filter:none}}
+
+/* ===== PRO POLISH v3 (additive, nothing removed) ===== */
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+:root{--sh1:0 1px 2px #0a0a0b0a,0 4px 12px #0a0a0b0a;--sh2:0 2px 4px #0a0a0b0a,0 14px 34px #0a0a0b14;--sh3:0 4px 8px #0a0a0b0d,0 30px 70px #0a0a0b24}
+h1,h2{letter-spacing:-.04em}
+/* buttons: consistent size + click ripple + magnetic hover */
+.btn{min-height:52px;letter-spacing:.005em}
+.btn .rp{position:absolute;border-radius:50%;background:#ffffff66;transform:scale(0);animation:rpl .65s ease-out forwards;pointer-events:none;z-index:-1}
+@keyframes rpl{to{transform:scale(3.2);opacity:0}}
+.btn{will-change:translate}
+/* hairline between alternate sections */
+section.alt{position:relative}
+section.alt:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#f1d3bd,transparent);pointer-events:none}
+/* dark section: faint moving grid */
+.blk{position:relative;overflow:hidden}
+.blk:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0,#000,transparent 70%);animation:gridm 18s linear infinite;pointer-events:none}
+@keyframes gridm{to{background-position:44px 44px,44px 44px}}
+.blk>.w{position:relative;z-index:1}
+/* hero: cursor spotlight layer */
+.hero{background:radial-gradient(420px circle at var(--sx,78%) var(--sy,24%),#ff9a5230,transparent 65%),radial-gradient(60vw 40vw at 100% 0,#ffe9da,transparent 60%),radial-gradient(40vw 30vw at 0 100%,#fff4ec,transparent 70%),#fff}
+/* hero: floating info chips on the photo */
+@keyframes chipfl{to{transform:translateY(-9px)}}
+.fchip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:16px;background:#ffffffeb;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid #fff;box-shadow:var(--sh2);animation:chipfl 4.6s ease-in-out infinite alternate}
+.fchip.c2{animation-delay:-2.3s}
+.fchip .fi{flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--o);color:#fff}.fchip .fi svg{width:18px;height:18px}
+.fchip b{display:block;color:var(--k);font:800 .92rem/1.2 var(--fh);letter-spacing:-.01em}.fchip small{display:block;color:var(--s);font-size:.72rem;line-height:1.3;margin-top:1px}
+.fchip.c1{left:10px;bottom:12px}.fchip.c2{display:none}
+@media(min-width:700px){.fchip.c1{left:-26px;bottom:22%}.fchip.c2{display:flex;right:-18px;bottom:7%}}
+/* plans: feature ticks stagger in */
+.pl.in ul.ck li{animation:up .6s var(--e) both}
+.pl.in ul.ck li:nth-child(1){animation-delay:.15s}.pl.in ul.ck li:nth-child(2){animation-delay:.25s}.pl.in ul.ck li:nth-child(3){animation-delay:.35s}.pl.in ul.ck li:nth-child(4){animation-delay:.45s}.pl.in ul.ck li:nth-child(5){animation-delay:.55s}.pl.in ul.ck li:nth-child(6){animation-delay:.65s}
+/* faq: accent bar */
+details{position:relative;overflow:hidden}
+details:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--o);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--e)}
+details[open]:before{transform:scaleY(1)}
+/* touch targets + hit areas */
+.chips a,.flt button{min-height:44px}
+.dots button{position:relative}.dots button:after{content:"";position:absolute;inset:-14px -6px}
+input,select,textarea{min-height:52px}textarea{min-height:120px}
+/* review cards: quote mark */
+.rc{position:relative;overflow:hidden}.rc:before{content:"\201C";position:absolute;right:16px;top:-6px;font:800 5rem/1 var(--fh);color:#f5c4a6;opacity:.55;pointer-events:none}
+/* sticky call-to-action bar (desktop only) */
+.scta{position:fixed;left:50%;bottom:20px;z-index:93;display:none;align-items:center;gap:14px;padding:10px 12px 10px 22px;border-radius:99px;background:#0a0a0bf2;color:#fff;box-shadow:0 24px 60px #0a0a0b55,0 0 0 1px #ffffff1a;transform:translate(-50%,140%);opacity:0;visibility:hidden;transition:transform .6s var(--e),opacity .4s,visibility 0s .6s}
+.scta.show{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .6s var(--e),opacity .4s,visibility 0s}
+.scta.gone{display:none!important}
+.scta .sct b{display:block;font:700 .95rem/1.2 var(--fh)}.scta .sct small{display:block;color:#a1a1aa;font-size:.74rem;line-height:1.3}
+.scta .btn{min-height:44px;padding:10px 20px;font-size:.9rem;box-shadow:none}
+.scta .btn.o{color:#fff;border-color:#ffffff55}.scta .btn.o:hover{background:#fff;color:var(--k);border-color:#fff}
+.scta .scx{width:34px;height:34px;border-radius:50%;border:0;background:#ffffff1a;color:#fff;font-size:1.3rem;line-height:1;cursor:pointer;transition:.3s}.scta .scx:hover{background:var(--o)}
+@media(min-width:1000px){.scta{display:flex}}
+@media(prefers-reduced-motion:reduce){.fchip,.blk:before{animation:none!important}.scta{transition:none}}
+html.lite .blk:before{animation:none}
+/* hero cards: roomier text on desktop */
+@media(min-width:700px){.hact .ga{display:none}.hact{padding:12px 14px;gap:12px}.hact .hi{width:40px;height:40px}.hact .ht b{font-size:.98rem}.hact .ht small{font-size:.74rem}}
+
+/* ===== PREMIUM LIGHT v5 (index only, additive) ===== */
+:root{--ink:#111114;--line:#EDE5DC;--cream:#FBF8F4;--sh-card:0 1px 2px #1a120a0a,0 8px 24px #1a120a0d;--sh-lift:0 2px 4px #1a120a0a,0 26px 64px #1a120a1f}
+body{color:#4a4a52}
+h1,h2,h3{color:var(--ink)}
+section{padding:clamp(72px,9vw,128px) 0}
+/* ---- buttons ---- */
+.btn{box-shadow:0 10px 24px #e85b1633,inset 0 1px 0 #ffffff40}
+.btn.o,.btn.g{box-shadow:none}
+/* ---- eyebrow pills ---- */
+.ey{background:var(--ol);border:1px solid #f8d9c3;border-radius:99px;padding:6px 14px 6px 12px;letter-spacing:.14em;font-size:.7rem}
+.ey:before,.ey.rv:before,.ey.rv.in:before{width:6px;height:6px;border-radius:50%;background:var(--o);box-shadow:0 0 0 4px #e85b1622}
+/* ---- hero: bright editorial ---- */
+.hero{background:radial-gradient(520px circle at var(--sx,80%) var(--sy,20%),#ff9a5226,transparent 62%),radial-gradient(900px 520px at 92% -12%,#ffe3cf,transparent 60%),radial-gradient(700px 420px at -6% 108%,#fff0e4,transparent 65%),linear-gradient(180deg,#fffefd,#fff8f2);padding-bottom:clamp(120px,12vw,160px);border-bottom:1px solid #f6e6d8}
+.hero:before{background:radial-gradient(circle,#ffd5b8,transparent 68%)}
+.hero h1{font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-.045em}
+.pill{box-shadow:0 1px 2px #1a120a0a,0 10px 24px #1a120a10}
+.pill i:before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--o);animation:pulse 2.2s infinite}
+.hf:before{inset:20px -18px -18px 20px;border-radius:30px;background:linear-gradient(145deg,#ff9a52,var(--o) 55%,#c7470d)}
+.hf .main{border-radius:28px;box-shadow:0 44px 90px #1a120a38,0 0 0 6px #ffffffd9}
+.hf:after{content:"";position:absolute;width:128%;aspect-ratio:1;left:-14%;top:-8%;border:1.5px dashed #f3c9a8;border-radius:50%;animation:spin 70s linear infinite;z-index:-1;pointer-events:none}
+.hact{border-color:#f1e2d4;box-shadow:var(--sh-card)}
+.hact:hover{box-shadow:0 22px 46px #e85b1626}
+.hact.pri{box-shadow:0 16px 34px #e85b1644,inset 0 1px 0 #ffffff55}
+/* trust cards under hero */
+.tcd{box-shadow:var(--sh-card)}
+/* ---- headings: word reveal ---- */
+h2{font-size:clamp(2rem,4.8vw,3.6rem)}
+.wd{display:inline-block;opacity:0;transform:translateY(.55em);transition:opacity .7s var(--e),transform .85s var(--e);transition-delay:calc(var(--i) * .055s + .08s)}
+h2.in .wd{opacity:1;transform:none}
+/* ---- marquee (kept dark band, bigger outline type) ---- */
+.mq{padding:26px 0;font-size:clamp(1.3rem,3vw,2rem);letter-spacing:-.02em}
+.mq span:nth-child(even){color:transparent;-webkit-text-stroke:1.2px #ffffffb3}
+/* ---- stats tiles ---- */
+.sn{position:relative;overflow:hidden;border-radius:22px;box-shadow:var(--sh-card);border-color:var(--line)}
+.sn:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--o),#ffb27a)}
+.sn b{font-size:clamp(1.9rem,6.5vw,3.6rem)}
+/* ---- sections ---- */
+section.alt,.alt{background:linear-gradient(180deg,var(--cream),#fff 150%)}
+.card{border-radius:24px;border-color:var(--line);box-shadow:var(--sh-card)}
+.card:hover{border-color:#f5c4a6;box-shadow:0 30px 70px #e85b1624,0 8px 20px #1a120a14}
+.cg .card .cim{aspect-ratio:4/3}
+.card .nm,.ncard .nm{background:#ffffffe8;color:var(--k);box-shadow:0 8px 20px #1a120a29;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ncard{border-radius:24px;border-color:var(--line);box-shadow:var(--sh-card)}
+/* ---- "why learn here": light ivory with white cards ---- */
+.blk{background:linear-gradient(180deg,#fff,var(--cream));color:var(--s)}
+.blk h2,.blk h3{color:var(--ink)}
+.blk .lead{color:var(--s)}
+.blk:before{background-image:radial-gradient(#e85b1626 1px,transparent 1px);background-size:30px 30px;animation:none;-webkit-mask-image:linear-gradient(180deg,#000,transparent 75%);mask-image:linear-gradient(180deg,#000,transparent 75%)}
+.f{border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-card)}
+.f p{color:var(--s)}.f h3{font-size:1.3rem}
+.f .n{color:#f3e9df}.f:hover .n{color:#f8d9c3}
+.f:hover{background:#fff;border-color:#f5c4a6;box-shadow:var(--sh-lift)}
+.f:before{background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#e85b1618,transparent 70%)}
+.ic{background:linear-gradient(145deg,#fff3e9,#ffe0cb);box-shadow:inset 0 0 0 1px #f8d9c3}
+/* ---- fee plans: featured plan = warm glow, not dark ---- */
+.pl{border-radius:28px;border-color:var(--line)}
+.pl.best{background:linear-gradient(180deg,#fff6ee,#fff 72%);border-color:transparent;box-shadow:0 34px 80px #e85b1630,0 8px 22px #1a120a12}
+.pl.best .tag{background:linear-gradient(135deg,var(--o),#ff9a52);z-index:3}
+@media(min-width:900px){.pl.best.rv.in{transform:scale(1.04)}.pl.best.rv.in:hover{transform:translateY(-8px) scale(1.04)}}
+/* ---- faq numbered ---- */
+details{counter-increment:fq;border-radius:20px;border-color:var(--line);box-shadow:var(--sh-card)}
+summary{justify-content:flex-start;gap:0}summary:before{content:counter(fq,decimal-leading-zero);font:800 .8rem var(--fb);letter-spacing:.06em;color:var(--o);margin-right:16px;flex:none}summary:after{margin-left:auto}
+/* ---- footer watermark ---- */
+footer .w:after{content:"STTC";position:absolute;right:-6px;bottom:-40px;font:800 clamp(6rem,18vw,14rem)/1 var(--fh);color:#ffffff07;letter-spacing:-.05em;pointer-events:none}
+/* ---- scroll-driven photo parallax ---- */
+@supports (animation-timeline:view()){
+.fr .p img,.cim img{scale:1.14;animation:pxl linear both;animation-timeline:view();animation-range:cover}
+@keyframes pxl{from{translate:0 -5%}to{translate:0 5%}}}
+/* ---- slow network / save-data: drop the expensive effects ---- */
+html.lite .hact,html.lite .fchip,html.lite .pill,html.lite .badge,html.lite .card .nm,html.lite .ncard .nm{backdrop-filter:none;-webkit-backdrop-filter:none}
+html.lite .hf:after,html.lite .hero:before{animation:none}
+html.lite .rv.z:not(.in){filter:none}
+@media(prefers-reduced-motion:reduce){.wd{opacity:1;transform:none;transition:none}.hf:after,.pill i:before{animation:none!important}.fr .p img,.cim img{animation:none!important;scale:1}}
 </style>
 <link rel="icon" href="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/sttc_logo.webp"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["EducationalOrganization","LocalBusiness"],"name":"Saharsa Technical Training Centre","alternateName":["STTC Saharsa","Technician Training Centre Saharsa"],"description":"Technician training centre for practical home-appliance repair in Saharsa, Bihar: one 2-month course covering AC, refrigerator, washing machine and geyser.","image":"https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@main/training-center-exterior.png","areaServed":["Saharsa","Bihar"],"logo":"https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/sttc_logo.webp","telephone":["+91-7004074214","+91-7739287877"],"knowsAbout":["Technician training","Home appliance repair training","AC repair training","Refrigerator repair training","Washing machine repair training","Geyser repair training"],"address":{"@type":"PostalAddress","streetAddress":"Kahara Kutti, Bangaon Road","addressLocality":"Saharsa","addressRegion":"Bihar","postalCode":"852201","addressCountry":"IN"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is the technician training centre in Saharsa?","acceptedAnswer":{"@type":"Answer","text":"Saharsa Technical Training Centre is at Kahara Kutti, Bangaon Road, Saharsa 852201, Bihar."}},{"@type":"Question","name":"Which home appliance repair course is available?","acceptedAnswer":{"@type":"Answer","text":"One 2-month course that covers AC, refrigerator, washing machine and geyser repair together."}},{"@type":"Question","name":"What is the course fee?","acceptedAnswer":{"@type":"Answer","text":"With stay (room, bedsheet and utensils) the fee is Rs 12,000, or Rs 10,000 on one-time payment. Without stay the fee is Rs 10,000."}},{"@type":"Question","name":"Is there a free demo class?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can attend the class for 3 days free, with no payment. Take admission only if you like the training."}},{"@type":"Question","name":"Is the training practical?","acceptedAnswer":{"@type":"Answer","text":"Yes. Learning combines classroom theory with practical workshop sessions guided by trainers."}}]}]}</script>
 </head>
@@ -469,6 +637,8 @@ const B="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@"+(CONFI
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 /* ---- lite mode (low-end phones) ---- */
 try{if(navigator.hardwareConcurrency<=4||navigator.deviceMemory<=2||screen.width<=900)document.documentElement.classList.add("lite")}catch(e){}
+let SLOWC=false;try{const cn=navigator.connection;SLOWC=!!(cn&&(cn.saveData||/^(slow-2g|2g|3g)$/.test(cn.effectiveType||"")));if(SLOWC)document.documentElement.classList.add("lite")}catch(e){}
+const idle=window.requestIdleCallback?f=>requestIdleCallback(f,{timeout:4000}):f=>setTimeout(f,2500);
 const LITE=document.documentElement.classList.contains("lite");
 /* ---- language engine: HI = dictionary {English: Hindi} (defined in Part 4). tr() returns Hindi when selected, else the English text ---- */
 let LANG="en";try{LANG=localStorage.getItem("sttc:lang")==="hi"?"hi":"en"}catch(e){}
@@ -482,7 +652,7 @@ const mb=$("#mb");if(mb)mb.setAttribute("aria-label",tr(mb.classList.contains("o
 const fc=$("#fc");if(fc)fc.innerHTML=`<a href="#/courses">${tr(COURSE.n)}</a>`+C.map(c=>`<a href="${CP[c.s]}">${tr(c.n)}</a>`).join("")}
 const ARW='<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const ico=k=>'<svg class="i" viewBox="0 0 24 24">'+IC[k]+'</svg>';
-const IC={phone:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',chat:'<path d="M21 12a8 8 0 0 1-11.7 7L3 21l2-5.3A8 8 0 1 1 21 12z"/>',shop:'<path d="M3 9l1-5h16l1 5M3 9v11h18V9M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M9 20v-6h6v6"/>',map:'<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/>',trend:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',tool:'<path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.3-.7-.7-2.3z"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',play:'<path d="M8 5l11 7-11 7z" fill="currentColor"/>',dl:'<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>'};
+const IC={book:'<path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3zM21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/>',phone:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',chat:'<path d="M21 12a8 8 0 0 1-11.7 7L3 21l2-5.3A8 8 0 1 1 21 12z"/>',shop:'<path d="M3 9l1-5h16l1 5M3 9v11h18V9M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M9 20v-6h6v6"/>',map:'<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/>',trend:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',tool:'<path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.3-.7-.7-2.3z"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',play:'<path d="M8 5l11 7-11 7z" fill="currentColor"/>',dl:'<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>'};
 const SZ={"homepage-owner-hero-banner.png":[941,1672],"home-appliances-repair-training.png":[1024,1536],"work_as_a_technician.png":[1536,1024],"start-your-own-appliance-repair-shop.png":[1536,1024],"work-in-any-state.png":[1536,1024],"keep-growing-career-opportunities.png":[1536,1024]};
 ["air-conditioning-repair-training-course..png","refrigerator-repair-training-course.png","washing-machine-repair-training-course.png","geyser-water-heater-repair-training-course.png","microwave-repair-training-course.png","ro-water-purifier-repair-training-course.png"].forEach(f=>SZ[f]=[1145,1374]);
 /* img(): asks for .webp, on error falls back ONCE to the original .png, then hides */
@@ -550,6 +720,7 @@ Object.assign(HI,{"Free demo":"फ्री डेमो","Attend the class for 
 Object.assign(HI,{"Your trainer":"आपके ट्रेनर","Every practical session is guided by a trainer, so you learn on real appliances with someone beside you.":"हर प्रैक्टिकल सेशन में ट्रेनर साथ रहते हैं, इसलिए आप असली उपकरणों पर किसी के साथ सीखते हैं।"});
 Object.assign(HI,{"Free demo class (3 days)":"फ्री डेमो क्लास (3 दिन)"});
 Object.assign(HI,{"View full page":"पूरा पेज देखें"});
+Object.assign(HI,{"AC, fridge, washing machine, geyser":"एसी, फ्रिज, वॉशिंग मशीन, गीज़र","Google rating":"गूगल रेटिंग"});
 /* ===================== SUPABASE (students + reviews + leads) ===================== */
 const SB="https://ulgirwxyizadhsdiiqrg.supabase.co",KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVsZ2lyd3h5aXphZGhzZGlpcXJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5Mjk0NzUsImV4cCI6MjEwNjUwNTQ3NX0.zJWJJ4clIo8ECCnHCr25K_p8ObOozhVJymHsjBEJbA4";
 const SBH={apikey:KEY,Authorization:"Bearer "+KEY};
@@ -654,7 +825,8 @@ const planSec=alt=>`<section${alt?' class="alt"':""} id="fee"><div class="w"><di
 const DEMO_WA="https://wa.me/917004074214?text="+encodeURIComponent("Hello, I would like to join the 3-day free demo class at Saharsa Technical Training Centre.");
 const demoSec=alt=>`<section${alt?' class="alt"':""} id="demo"><div class="w"><div class="vbx rv z"><div><div class="ey">${tr("Free demo")}</div><h2>${T("3 days <em>free demo class</em>. No payment.","3 दिन की <em>फ्री डेमो क्लास</em>। कोई पेमेंट नहीं।")}</h2><p>${tr("Attend the class for 3 days without paying anything. Take admission only if you like the training.")}</p></div><div class="pb"><a class="btn" href="${DEMO_WA}" target="_blank" rel="noopener" data-wa data-ga="demo">${tr("Book free demo")} ${ARW}</a><a class="btn o" href="tel:+917004074214">${tr("Call 7004074214")}</a></div></div></div></section>`;
 /* HERO TRUST CHIPS: free demo + Google rating (rating hidden until CONFIG.RATING.score is filled) */
-const heroTrust=()=>{const R=CONFIG.RATING||{},sc0=(R.score||"").trim();return `<div class="hx"><a href="${DEMO_WA}" target="_blank" rel="noopener" class="hxd" data-wa data-ga="demo">${ico("play")}<span><b>${T("3 days free demo","3 दिन फ्री डेमो")}</b><br>${T("No payment. Admission only if you like it","कोई पेमेंट नहीं। पसंद आए तभी एडमिशन")}</span></a>${sc0?`<a href="${MAP}" target="_blank" rel="noopener" class="hxr"><span class="hxs">${STAR.repeat(5)}</span><span><b>${esc(sc0)}</b>${R.count?" · "+esc(R.count)+" "+T("Google reviews","गूगल रिव्यू"):""}</span></a>`:""}</div>`};
+const heroTrust=()=>{const R=CONFIG.RATING||{},sc0=(R.score||"").trim(),go='<span class="ga">'+ARW+'</span>';
+return `<div class="hacts"><a class="hact pri" href="#/courses"><span class="hi">${ico("book")}</span><span class="ht"><b>${tr("Explore Courses")}</b><small>${tr("AC, fridge, washing machine, geyser")}</small></span>${go}</a><a class="hact" href="${DEMO_WA}" target="_blank" rel="noopener" data-wa data-ga="demo"><span class="hi">${ico("play")}</span><span class="ht"><b>${T("3 days free demo","3 दिन फ्री डेमो")}</b><small>${T("No payment. Admission only if you like it","कोई पेमेंट नहीं। पसंद आए तभी एडमिशन")}</small></span>${go}</a>${sc0?`<a class="hact" href="${MAP}" target="_blank" rel="noopener"><span class="hi">${ico("star").replace('class="i"','class="i s"')}</span><span class="ht"><b><span>${esc(sc0)}</span><span class="hxs">${STAR.repeat(5)}</span></b><small>${R.count?esc(R.count)+" "+T("Google reviews","गूगल रिव्यू"):tr("Google rating")}</small></span>${go}</a>`:""}${brochureBtn()}</div>`};
 /* STATS STRIP with count-up */
 const statsSec=()=>{const S=String(CONFIG.STUDENTS||"").trim(),it=[["2","","Months","महीने"],["4","","Appliances","उपकरण"],["3","","Days free demo","दिन फ्री डेमो"]];if(S.replace(/\D/g,""))it.push([S.replace(/\D/g,""),S.indexOf("+")>-1?"+":"","Students trained","छात्र सीख चुके"]);return `<section class="sx"><div class="w"><div class="sg" style="--n:${it.length}">${it.map(x=>`<div class="sn rv z"><b><span data-n="${x[0]}">0</span>${x[1]}</b><small>${T(x[2],x[3])}</small></div>`).join("")}</div></div></section>`};
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cio.unobserve(e.target);cnt(e.target,+e.target.dataset.n)}}),{threshold:.4});
@@ -696,7 +868,7 @@ const P={
 "":{t:"Technician Training Centre in Saharsa, Bihar | Home Appliance Repair Course | Saharsa Technical Training Centre",d:"Saharsa Technical Training Centre: one 2-month practical course covering AC, refrigerator, washing machine and geyser repair in Saharsa, Bihar. Fee Rs 12,000 with stay (Rs 10,000 on one-time payment) or Rs 10,000 without stay. Call 7004074214.",h:()=>`
 <section class="hero"><div class="w hg"><div><div class="pill"><i></i>${tr("Practical Skills • Better Opportunities")}</div><h1><span class="ln"><i>${T("Learn appliance","अप्लायंस रिपेयरिंग")}</i></span> <span class="ln"><i>${T("repair the <em>practical</em>","सीखिए <em>प्रैक्टिकल</em>")}</i></span> <span class="ln"><i>${T("way.","तरीके से।")}</i></span></h1>
 <p class="lead">${tr("Hands-on training on air conditioners, refrigerators, washing machines and more, guided by trainers in a real workshop environment in Saharsa, Bihar.")}</p>
-<div class="cta"><a class="btn" href="#/courses">${tr("Explore Courses")} ${ARW}</a>${brochureBtn()}</div>${heroTrust()}</div>
+${heroTrust()}</div>
 <div class="hf"><div class="badge" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="cp" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text><textPath href="#cp" textLength="236" lengthAdjust="spacing">PRACTICAL TRAINING • SAHARSA BIHAR •</textPath></text></svg><b><svg class="i" viewBox="0 0 24 24" style="color:#fff;width:16px;height:16px"><path d="M7 17L17 7M8 7h9v9"/></svg></b></div>
 <div class="main">${img("homepage-owner-hero-banner.png","Saharsa Technical Training Centre banner",false)}</div></div></div></section>${trust()}${mqh()}${statsSec()}
 <section><div class="w two"><div class="fr rv"><div class="p">${img("training-center-exterior.png","Saharsa Technical Training Centre building")}</div></div><div><div class="ey rv">${tr("The institute")}</div><h2 class="rv r2">${T("Skills built with <em>your own hands</em>","अपने <em>हाथों</em> से सीखा हुनर")}</h2><p class="lead rv r2">${tr("Saharsa Technical Training Centre focuses on practical home-appliance repair training: understanding components, testing, diagnosing faults and servicing.")}</p><p style="margin-top:28px" class="rv"><a class="btn o" href="#/about">${tr("About the Institute")} ${ARW}</a></p></div></div></section>
@@ -754,7 +926,28 @@ const de=document.documentElement;de.style.scrollBehavior="auto";
 if(kp){scrollTo(0,restoreY)}else{menu(false);scrollTo(0,0);hd.style.transform="";ly=0}
 de.style.scrollBehavior="";{const cc=p[0]==="courses"&&p[1]&&C.find(x=>x.s===p[1]);WAM="Hello, I would like to know about "+(cc?"the "+cc.n+" course":"the courses")+" at Saharsa Technical Training Centre."}waSet(document.body);sc();init();if(pg.a)pg.a();
 if(window.gtag)gtag("event","page_view",{page_title:document.title,page_location:location.href,page_path:"/"+location.hash})}
-function init(){initX();wire($("#app"))}
+/* ===== PRO POLISH v3 JS ===== */
+function proEnh(L){try{
+const RMq=matchMedia("(prefers-reduced-motion:reduce)").matches,FP=matchMedia("(hover:hover) and (pointer:fine)").matches;
+const hf=document.querySelector(".hf");
+if(hf&&!hf.querySelector(".fchip")){
+const sT='<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',sG='<svg class="i" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.3-.7-.7-2.3z"/></svg>';
+hf.insertAdjacentHTML("beforeend",'<div class="fchip c1"><span class="fi">'+sT+'</span><span><b>'+L.c1b+'</b><small>'+L.c1s+'</small></span></div><div class="fchip c2"><span class="fi">'+sG+'</span><span><b>'+L.c2b+'</b><small>'+L.c2s+'</small></span></div>')}
+const hero=document.querySelector(".hero");
+if(hero&&FP&&!RMq&&!hero.dataset.sp){hero.dataset.sp=1;let raf=0;hero.addEventListener("pointermove",e=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;const r=hero.getBoundingClientRect();hero.style.setProperty("--sx",(e.clientX-r.left)+"px");hero.style.setProperty("--sy",(e.clientY-r.top)+"px")})})}
+const old=document.getElementById("scta");if(old)old.remove();
+const bar=document.createElement("div");bar.id="scta";bar.className="scta";bar.setAttribute("role","complementary");
+bar.innerHTML='<span class="sct"><b>'+L.t+'</b><small>'+L.s+'</small></span><a class="btn" href="tel:+917004074214">'+L.call+'</a><a class="btn o" href="'+L.wa+'" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="scx" aria-label="'+L.x+'">&times;</button>';
+document.body.appendChild(bar);
+bar.querySelector(".scx").onclick=()=>{bar.classList.add("gone");try{sessionStorage.setItem("sttc:scta","1")}catch(e){}};
+}catch(e){}}
+if(!window.__pro){window.__pro=1;
+const FPm=matchMedia("(hover:hover) and (pointer:fine)").matches,RMm=matchMedia("(prefers-reduced-motion:reduce)").matches;let lastMag=null;
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest(".btn");if(!b||RMm)return;const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),sp=document.createElement("span");sp.className="rp";sp.style.cssText="width:"+s+"px;height:"+s+"px;left:"+(e.clientX-r.left-s/2)+"px;top:"+(e.clientY-r.top-s/2)+"px";b.appendChild(sp);setTimeout(()=>sp.remove(),700)});
+if(FPm&&!RMm){document.addEventListener("pointermove",e=>{const b=e.target.closest&&e.target.closest(".btn");if(b&&!b.closest(".scta")){const r=b.getBoundingClientRect();b.style.translate=((e.clientX-r.left-r.width/2)*.1)+"px "+((e.clientY-r.top-r.height/2)*.16)+"px";lastMag=b}else if(lastMag){lastMag.style.translate="";lastMag=null}})}
+addEventListener("scroll",()=>{const b=document.getElementById("scta");if(!b)return;const f=document.querySelector("footer"),nf=f&&f.getBoundingClientRect().top<innerHeight+40;let g=false;try{g=sessionStorage.getItem("sttc:scta")==="1"}catch(e){}b.classList.toggle("show",scrollY>700&&!nf&&!g)},{passive:true})}
+const PL=()=>({c1b:T("2 months","2 महीने"),c1s:T("Practical course","प्रैक्टिकल कोर्स"),c2b:T("4 appliances","4 उपकरण"),c2s:T("One single course","एक ही कोर्स"),t:T("Free 3-day demo class","फ्री 3 दिन की डेमो क्लास"),s:T("No payment. Admission only if you like it","कोई पेमेंट नहीं। पसंद आए तभी एडमिशन"),call:tr("Call")+" 7004074214",wa:DEMO_WA,x:tr("Close")});
+function init(){initX();wire($("#app"));proEnh(PL())}
 const qa=(r,s)=>[...(r.matches(s)?[r]:[]),...r.querySelectorAll(s)];
 let WAM="Hello, I would like to know about the courses at Saharsa Technical Training Centre.";
 const waSet=r=>qa(r,"a[href^='https://wa.me/917004074214']").forEach(a=>{if(a.dataset.h0==null)a.dataset.h0=a.getAttribute("href");if(a.dataset.h0.indexOf("?")>-1)return;a.setAttribute("href",a.dataset.h0+"?text="+encodeURIComponent(WAM))});
@@ -766,9 +959,13 @@ const t=document.createElement("template");t.innerHTML=html;const kids=[...t.con
 if(!("IntersectionObserver" in window)||/bot|crawl|spider|slurp/i.test(navigator.userAgent)||kids.length<=keep){view.append(t.content);if(view.querySelector("#hs"))loadHome();if(view.querySelector("#rvs"))loadRev();return}
 kids.forEach((n,i)=>{if(i<keep)return;const ph=document.createElement("div");ph.className="lz";ph._n=n;n.replaceWith(ph)});
 view.append(t.content);
-lzIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const ph=e.target;lzIO.unobserve(ph);const n=ph._n;ph.replaceWith(n);wire(n);tlUpdate();if(n.id==="hs")loadHome();if(n.id==="rvs")loadRev()}),{rootMargin:"600px 0px"});
-$$(".lz").forEach(x=>lzIO.observe(x))}
-function wire(r){enhSel(r);cdTick();cntInit(r);waSet(r);qa(r,".rv").forEach(e=>{const sib=[...e.parentElement.children].indexOf(e);if(/grid|fe|steps|gal|pr/.test(e.parentElement.className))e.style.setProperty("--d",(sib%4)*.09+"s");io.observe(e)});
+const fill=ph=>{if(!ph||!ph.isConnected)return;lzIO.unobserve(ph);const n=ph._n;ph.replaceWith(n);wire(n);tlUpdate();if(n.id==="hs")loadHome();if(n.id==="rvs")loadRev()};
+lzIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)fill(e.target)}),{rootMargin:"600px 0px"});
+$$(".lz").forEach(x=>lzIO.observe(x));
+/* first paint stays tiny: after the page is idle, build the rest one section at a time */
+if(!SLOWC){const step=()=>{const ph=view.querySelector(".lz");if(!ph||!ph.isConnected)return;fill(ph);idle(step)};setTimeout(()=>idle(step),3000)}}
+function splitH(r){qa(r,"h2.rv").forEach(h=>{if(h.dataset.sp)return;h.dataset.sp=1;let i=0;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p))}else{const sp=document.createElement("span");sp.className="wd";sp.style.setProperty("--i",i++);sp.textContent=p;f.appendChild(sp)}});c.replaceWith(f)}else if(c.nodeType===1)walk(c)})};walk(h)})}
+function wire(r){enhSel(r);splitH(r);cdTick();cntInit(r);waSet(r);qa(r,".rv").forEach(e=>{const sib=[...e.parentElement.children].indexOf(e);if(/grid|fe|steps|gal|pr/.test(e.parentElement.className))e.style.setProperty("--d",(sib%4)*.09+"s");io.observe(e)});
 const car=r.querySelector("#car");if(car){const sl=$$("#car .sl"),ds=$$("#dots button");let i=0,pz=false,sx=null;const go=k=>{i=(k+sl.length)%sl.length;sl.forEach((s,j)=>s.classList.toggle("on",j===i));ds.forEach((d,j)=>d.classList.toggle("on",j===i))};go(0);
 ds.forEach((d,j)=>d.onclick=()=>{pz=true;go(j)});$("#car .p").onclick=()=>{pz=true;go(i-1)};$("#car .nx").onclick=()=>{pz=true;go(i+1)};
 car.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;pz=true},{passive:true});car.addEventListener("touchend",e=>{if(sx!=null){const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)go(i+(d<0?1:-1));sx=null}});
@@ -792,7 +989,7 @@ if(lb.classList.contains("open")){if(e.key==="ArrowLeft")st(-1);if(e.key==="Arro
 if(e.key==="Tab"){const fs=[$("#lc"),$("#lp"),$("#ln")],i=fs.indexOf(document.activeElement);e.preventDefault();fs[e.shiftKey?(i<=0?fs.length-1:i-1):(i+1)%fs.length].focus()}}});
 $("#yr").textContent=new Date().getFullYear();
 /* timeline fill */
-function tlUpdate(){const vh=innerHeight,an=vh*.55;$$(".tlv").forEach(t=>{const r=t.getBoundingClientRect(),y=Math.max(0,Math.min(r.height,an-r.top)),done=r.bottom<=vh*.9;t.querySelector(".fill").style.height=(done?r.height:y)+"px";t.querySelectorAll(".ti").forEach(i=>i.classList.toggle("on",done||i.offsetTop+24<=y))})}
+function tlUpdate(){const vh=innerHeight,an=vh*.55;$$(".tlv").forEach(t=>{const r=t.getBoundingClientRect(),y=Math.max(0,Math.min(r.height,an-r.top)),done=r.bottom<=vh*.9;t.querySelector(".fill").style.height=(done?r.height:y)+"px";t.querySelectorAll(".ti").forEach(i=>i.classList.toggle("on",done||i.offsetTop+24<=y));const on=t.querySelectorAll(".ti.on");t.querySelectorAll(".ti").forEach(x=>x.classList.toggle("cur",!!on.length&&x===on[on.length-1]))})}
 function initX(){tlUpdate()}
 /* card 3D tilt: skipped in lite mode and for reduced motion */
 if(!LITE&&matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches){
@@ -806,6 +1003,8 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 /* boot */
 const ld=$("#ld");
 applyStatic();loadGA();route();setInterval(cdTick,1000);requestAnimationFrame(()=>ld.classList.add("h"));
+if(!SLOWC)idle(()=>{sbF(AL).catch(()=>{});sbF("reviews?select=name,course,rating,text&approved=eq.true&order=created_at.desc&limit=30").catch(()=>{})});
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 addEventListener("hashchange",()=>route());
 </script>
 </body>
