@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>try{if(sessionStorage.getItem("sttc:pgin")){sessionStorage.removeItem("sttc:pgin");document.documentElement.classList.add("pgin")}}catch(e){}</script>
 <style>
 :root{--o:#E85B16;--oh:#C7470D;--ol:#FFF4EC;--k:#0A0A0B;--t:#3F3F46;--s:#71717A;--b:#E7E5E4;--alt:#FAF9F7;--e:cubic-bezier(.2,.7,.2,1);--r:16px;--r-lg:24px;--pill:99px;--fb:"DM Sans","Noto Sans Devanagari",system-ui,sans-serif;--fh:"Bricolage Grotesque","Noto Sans Devanagari",system-ui,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px;overflow-x:hidden}
@@ -148,12 +149,6 @@ footer small{display:block;margin-top:44px;padding-top:20px;border-top:1px solid
 body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv,.rv.l,.rv.r2,.rv.z{opacity:1;transform:none}.ln i{transform:none}}
 
-/* ===== EXTRA: dropdown nav ===== */
-nav li.dd{position:relative}
-nav .sub{display:block;list-style:none;margin:0;padding:6px;position:absolute;top:100%;left:0;min-width:290px;background:#fff;border:1.5px solid #f5c4a6;border-radius:16px;box-shadow:0 26px 54px #0a0a0b26;opacity:0;visibility:hidden;transform:translateY(8px);transition:.3s var(--e)}
-nav li.dd:hover .sub,nav li.dd:focus-within .sub{opacity:1;visibility:visible;transform:none}
-nav .sub a{display:block;padding:10px 14px;border-radius:10px;font-weight:600;font-size:.9rem;transition:.25s}nav .sub a:hover,nav .sub a.on{background:var(--ol);color:var(--o)}
-@media(max-width:900px){nav .sub{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:0 0 8px 14px;min-width:0;background:none}nav .sub a{font:600 1rem var(--fb);padding:8px 0;border-radius:0}nav .sub a:hover{background:none}}
 /* ===== hero extras ===== */
 @keyframes shm{to{background-position:-200% 0}}@keyframes orb{to{transform:translate(40px,30px) scale(1.15)}}@keyframes nudge{50%{transform:translateX(4px)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes mq{to{transform:translateX(-50%)}}@keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.7);opacity:0}}
 .hero h1 em{background:linear-gradient(100deg,var(--o),#ff9a52,var(--o));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shm 6s linear infinite}
@@ -471,15 +466,246 @@ html.lite section.alt:after{display:none}
 .cring.dn{width:26px;height:26px;margin:-13px 0 0 -13px;background:#e85b1626}
 html.lite .cring{display:none}
 @media(max-width:900px),(hover:none){.cring{display:none}}
+
+/* ===== PREMIUM v9: lag-free + ultra-premium finish ===== */
+/* -- performance: no blur filters, no layout animations on small screens -- */
+.hg:before,.hg:after{filter:none!important;background:radial-gradient(circle,#e85b1630,transparent 68%)!important}
+.hg:after{background:radial-gradient(circle,#ffb27a40,transparent 68%)!important}
+html.lite .hg:before,html.lite .hg:after,html.lite .fchip,html.lite .badge svg.t{animation:none!important}
+@media(max-width:900px){
+.hg:before,.hg:after{display:none}
+header .hd,header .logo img{transition:none!important}
+header.mo .hd{height:60px}header.sc.mo .hd{height:52px}
+nav{will-change:transform;contain:layout style;backface-visibility:hidden}
+#sc{will-change:opacity}
+.hero:before,section.alt:after{display:none}
+}
+html.lk,html.lk body{overflow:hidden}
+html.lk .hero *,html.lk .hero:before,html.lk .hero:after,html.lk section *,html.lk .hg,html.lk .hg:before,html.lk .hg:after,html.lk footer *{animation-play-state:paused!important}
+nav,nav *{animation-play-state:running!important}
+nav{overflow-x:hidden;scrollbar-width:none}nav::-webkit-scrollbar{display:none}
+/* -- refined hairline gradient borders -- */
+.card,.ncard,.f,.stl,.sn,details,.cr2,.tcd{border:1px solid transparent;background-color:#fff;background-image:linear-gradient(#fff,#fff),linear-gradient(145deg,#f7e6d8,#fff 42%,#f3d3bc);background-origin:border-box;background-clip:padding-box,border-box}
+.f{background-image:linear-gradient(#fff,#fff),linear-gradient(145deg,#f7e6d8,#fff 42%,#f3d3bc)}
+/* -- buttons: ring + arrow nudge -- */
+.btn:not(.o):not(.g):not(.w2){box-shadow:0 12px 28px #e85b1638,inset 0 1px 0 #ffffff59,inset 0 -2px 0 #0000001a}
+.btn svg{transition:transform .4s var(--e)}
+.btn:hover svg{transform:translateX(4px)}
+.btn.o{background:#fff}
+.btn.o:hover{background:var(--k);color:#fff}
+/* -- headings & copy polish -- */
+h2{letter-spacing:-.035em}
+.lead{color:#5b5b64}
+.ey{box-shadow:0 1px 0 #fff inset,0 6px 16px #e85b1614}
+/* -- section hairline accents -- */
+section.alt:before{background:linear-gradient(90deg,transparent,#f1c9ad 30%,#f1c9ad 70%,transparent)}
+/* -- footer: crisp columns, sliding link underline -- */
+footer h3{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.9;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #ffffff1f}
+footer a{position:relative;width:fit-content}
+footer a:after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:#ff9a52;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--e)}
+footer a:hover:after{transform:scaleX(1)}
+footer .flogo+p{max-width:34ch}
+/* -- quiet elevation scale on hover (no lift jitter) -- */
+.stl:hover,.sn:hover,.cr2:hover,.tcd:hover{box-shadow:0 18px 40px #e85b1620}
+/* -- scroll cue on hero -- */
+.hero .w.hg{position:relative}
+/* ===== v10 ultra-premium finish (CSS only, compositor-friendly) ===== */
+::selection{background:#e85b16;color:#fff}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11"}
+:focus-visible{outline:2px solid #e85b16;outline-offset:3px;border-radius:10px}
+/* buttons: light sweep + soft depth */
+.btn{position:relative;overflow:hidden;isolation:isolate;letter-spacing:.01em;transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s,background-color .3s,border-color .3s}
+.btn:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s cubic-bezier(.22,.8,.24,1)}
+.btn:hover:after{transform:translateX(120%)}
+.btn:active{transform:scale(.97)}
+.btn.o{box-shadow:0 1px 0 #ffffff40 inset,0 10px 26px -8px #e85b1680,0 2px 6px #e85b1630}
+.btn.o:hover{box-shadow:0 1px 0 #ffffff50 inset,0 18px 38px -10px #e85b16a0,0 3px 8px #e85b1630}
+/* cards: calm lift, layered shadow */
+.card,.ncard,.f,.stl,.sn,.cr2,.tcd{transition:transform .5s cubic-bezier(.22,.8,.24,1),box-shadow .5s}
+@media(hover:hover){.card:hover,.ncard:hover,.f:hover,.stl:hover,.sn:hover,.cr2:hover,.tcd:hover{transform:translateY(-6px);box-shadow:0 2px 4px #1a120a0a,0 18px 40px -12px #1a120a26,0 40px 80px -30px #e85b1638}}
+.card img,.cim img,.gal img{transition:transform 1.2s cubic-bezier(.22,.8,.24,1),filter .6s}
+@media(hover:hover){.card:hover img,.cim:hover img,.gal img:hover{transform:scale(1.045)}}
+.cim,.card .ph{overflow:hidden}
+/* section eyebrow + headings */
+.ey{letter-spacing:.16em;font-weight:700}
+h1,h2{letter-spacing:-.025em;text-wrap:balance}
+.lead{text-wrap:pretty;line-height:1.7}
+h2.rv:after{content:"";display:block;width:46px;height:3px;border-radius:3px;margin-top:14px;background:linear-gradient(90deg,#e85b16,#f6a56b)}
+.hero h1:after,.w.two h2:after{display:none}
+/* header: frosted glass once scrolled */
+header.sc{background:#ffffffd9;-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);box-shadow:0 1px 0 #f0dccd,0 12px 30px -16px #1a120a30}
+@media(max-width:900px){header.sc{-webkit-backdrop-filter:none;backdrop-filter:none;background:#fffffff2}}
+/* links inside articles */
+.art a:not(.btn),.lead a{text-decoration:none;background:linear-gradient(#e85b16,#e85b16) 0 100%/0 2px no-repeat;transition:background-size .4s cubic-bezier(.22,.8,.24,1)}
+.art a:not(.btn):hover,.lead a:hover{background-size:100% 2px}
+/* FAQ */
+details{transition:box-shadow .4s,background-color .3s}
+details[open]{box-shadow:0 14px 34px -18px #e85b1660}
+summary{cursor:pointer}
+/* floating buttons */
+.fabs a,.fabs button{transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s}
+@media(hover:hover){.fabs a:hover,.fabs button:hover{transform:translateY(-3px) scale(1.06)}}
+/* footer */
+footer{position:relative}
+footer:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#e85b16,#f6a56b,transparent);opacity:.8}
+footer a{transition:color .25s,transform .3s}
+@media(hover:hover){footer a:hover{transform:translateX(3px)}}
+/* custom scrollbar (desktop) */
+@media(hover:hover) and (min-width:901px){html{scrollbar-width:thin;scrollbar-color:#e9b99a #fff8f3}}
+/* image placeholder shimmer while loading */
+img[loading=lazy]{background:linear-gradient(110deg,#f6ece4 30%,#fff8f3 50%,#f6ece4 70%);background-size:200% 100%}
+@media(prefers-reduced-motion:reduce){.btn:after{display:none}.card:hover,.ncard:hover,.f:hover{transform:none}}
+/* ===== v11 ===== */
+header{transition:transform .45s cubic-bezier(.22,.8,.24,1),box-shadow .3s,background-color .3s}
+@media(max-width:900px){header.hh{transform:translateY(-110%)}}
+.btn .rpl{position:absolute;border-radius:50%;background:#ffffff59;transform:scale(0);animation:rpl .65s cubic-bezier(.22,.8,.24,1) forwards;pointer-events:none;z-index:-1}
+@keyframes rpl{to{transform:scale(1);opacity:0}}
+@media(max-width:900px){.card:active,.ncard:active,.f:active{transform:scale(.985)}}
+/* ===== v12 signature redesign (visible) ===== */
+/* hero */
+.hero h1{font-size:clamp(2.7rem,6.2vw,5.3rem);line-height:1.02;letter-spacing:-.04em}
+.hero h1 em,h1 em,h2 em{font-style:normal;background:linear-gradient(100deg,#e85b16 10%,#ff9a4d 90%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero .lead{font-size:clamp(1.05rem,1.5vw,1.25rem);max-width:56ch}
+.hf .main{border-radius:34px;border:6px solid #fff;box-shadow:0 0 0 1px #f3d9c6,0 50px 90px -30px #e85b1666,0 24px 50px -24px #1a120a55}
+.pill{box-shadow:0 8px 24px -10px #e85b1655;border:1px solid #f6d3bb}
+/* headings */
+section h2.rv,section .ey+h2{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.06;letter-spacing:-.03em}
+.ey{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:99px;background:#fff1e8;border:1px solid #f6d3bb;color:#d34e0e;font-size:.72rem;text-transform:uppercase}
+.blk .ey{background:#e85b161f;border-color:#e85b1655;color:#ff9a4d}
+/* course grid: 4 across on desktop, no orphan card */
+@media(min-width:1100px){.grid.cg{flex-wrap:nowrap}.grid.cg>.card{flex:1 1 0;min-width:0}}
+.card{border-radius:28px}
+/* stats */
+.sn b{font-size:clamp(2.4rem,4.6vw,3.6rem);letter-spacing:-.04em;background:linear-gradient(120deg,#e85b16,#ff9a4d);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.sn{text-align:center;padding:30px 20px}
+/* demo banner -> rich orange gradient */
+.vbx{position:relative;overflow:hidden;background:linear-gradient(120deg,#e85b16 0%,#f58636 60%,#ffab6b 100%);border:0;border-radius:30px;padding:clamp(26px,4vw,48px);color:#fff;box-shadow:0 40px 80px -30px #e85b16aa}
+.vbx:before{content:"";position:absolute;right:-60px;top:-90px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#ffffff40,transparent 70%);pointer-events:none}
+.vbx h2,.vbx p,.vbx .ey{color:#fff;position:relative}
+.vbx h2{font-size:clamp(1.6rem,3.4vw,2.5rem)}
+.vbx h2 em{background:none;-webkit-text-fill-color:#fff;color:#fff;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:#ffffff90}
+.vbx p{opacity:.92}
+.vbx .ey{background:#ffffff26;border-color:#ffffff55}
+.vbx .btn.o{background:#fff;color:#d34e0e;box-shadow:0 14px 30px -10px #00000040}
+.vbx .btn:not(.o){background:transparent;color:#fff;border:1.5px solid #ffffffaa}
+.vbx .btn:not(.o):hover{background:#ffffff1f}
+/* alt sections: soft depth */
+section.alt{background:linear-gradient(180deg,#fff7f1,#fffaf6 40%,#fff7f1)}
+/* admission + why-learn bands: stronger glow */
+.admb{box-shadow:0 50px 100px -40px #e85b1688,0 0 0 1px #ffffff14}
+.blk .fe>*{background:#ffffff0a;border:1px solid #ffffff1c;backdrop-filter:none}
+/* ===== header from home page ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding-top:env(safe-area-inset-top)}
+header:before{content:"";position:absolute;inset:0;background:#ffffffe8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.4s var(--e);z-index:0}
+header.sc:before{border-color:var(--b);box-shadow:0 10px 30px #0a0a0b0d}
+.hd{position:relative;display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .4s var(--e)}header.sc .hd{height:68px}
+.logo{display:flex;align-items:center;gap:12px;font:800 var(--fs-lg) var(--fh);line-height:1.05;color:var(--k);position:relative;z-index:3}
+.lm{width:42px;height:42px;border-radius:var(--r-sm);background:var(--o);color:#fff;display:grid;place-items:center;font-size:var(--fs-xl)}.logo small{display:block;font:600 var(--fs-xs) var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--s);margin-top:3px}
+nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0;align-items:center}
+nav a.l{display:block;padding:10px 16px;font-weight:500;font-size:var(--fs-base);color:var(--t);position:relative;transition:color .3s}
+nav a.l:after{content:"";position:absolute;left:16px;right:16px;bottom:5px;height:2px;border-radius:2px;background:var(--o);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--e)}
+nav a.l:hover,nav a.l.on{color:var(--k)}nav a.l:hover:after,nav a.l.on:after{transform:scaleX(1)}nav .btn{padding:12px 24px;margin-left:12px}
+#mb{display:none;position:relative;z-index:3;width:46px;height:46px;border-radius:var(--r-sm);border:1px solid var(--b);background:#fff;color:var(--k);cursor:pointer;place-items:center}
+#mb .x{display:none}#mb.on .x{display:block}#mb.on .m{display:none}
+/* language toggle (desktop: inside nav list; mobile: next to menu button) */
+.lg{min-width:44px;height:40px;padding:0 12px;border-radius:var(--r-pill);border:1.5px solid #f5c4a6;background:#fff;color:var(--k);font:700 var(--fs-sm) var(--fb);cursor:pointer;transition:.3s var(--e)}.lg:hover{border-color:var(--o);color:var(--o)}
+.lg-m{display:none;position:relative;z-index:3;margin-left:auto;margin-right:8px}
+.hr{display:flex;align-items:center;position:relative;z-index:3}
+@media(max-width:900px){#mb{display:grid}.lg-m{display:block}nav .lg-d{display:none}
+nav{position:fixed;top:0;right:0;bottom:0;width:min(340px,88vw);background:#fff;padding:150px 26px 30px;transform:translateX(105%);transition:transform .5s var(--e);z-index:2;box-shadow:-20px 0 60px #0a0a0b26;overflow-y:auto}
+nav.open{transform:none}nav ul{flex-direction:column;align-items:stretch;gap:0;counter-reset:n}
+nav li{opacity:0;transform:translateX(28px);transition:.5s var(--e)}nav.open li{opacity:1;transform:none}
+nav.open li:nth-child(2){transition-delay:.07s}nav.open li:nth-child(3){transition-delay:.14s}nav.open li:nth-child(4){transition-delay:.21s}nav.open li:nth-child(5){transition-delay:.28s}nav.open li:nth-child(6){transition-delay:.35s}nav.open li:nth-child(7){transition-delay:.42s}
+nav a.l{font:700 1.6rem var(--fh);letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--b);color:var(--k)}nav a.l:before{counter-increment:n;content:"0" counter(n);font:600 var(--fs-xs) var(--fb);color:var(--o);margin-right:14px;vertical-align:middle}nav a.l:after{display:none}nav a.l.on{color:var(--o)}
+nav .btn{margin:22px 0 0;width:100%;justify-content:center}}
+.tb{display:none}
+.logo img{height:60px;width:auto;transition:height .4s var(--e)}header.sc .logo img{height:48px}.logo .wm{display:none}
+.logo:hover img{transform:scale(1.04) rotate(-1deg)}.logo img{transition:height .4s var(--e),transform .5s var(--e)}
+header{transition:transform .5s var(--e)}
+html.lk,html.lk body{overflow:hidden}header.mo{transform:none!important}
+@media(min-width:901px){nav a.l.on{color:var(--o);background:var(--ol);border-radius:var(--r-pill)}nav a.l.on:after{transform:scaleX(0)}}
+/* ===== HEADER (slim, premium) ===== */
+.hd{height:60px}header.sc .hd,header.mo .hd{height:52px}.logo img{height:40px}header.sc .logo img{height:34px}#mb{width:44px;height:44px;margin-left:0;background:#fff;border:1.5px solid #f5c4a6;color:var(--k);border-radius:14px;box-shadow:0 8px 20px #e85b1626,inset 0 1px 0 #fff;transition:.3s var(--e)}#mb:hover{border-color:var(--o);color:var(--o)}#mb.on{background:var(--o);border-color:var(--o);color:#fff}
+@media(max-width:900px){nav,header.sc nav{padding-top:calc(64px + env(safe-area-inset-top))}header.mo .hd{height:52px}nav{background:linear-gradient(180deg,#fff,var(--alt))}nav:after{content:"Saharsa Technical Training Centre";display:block;margin-top:30px;font:600 var(--fs-xs) var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--s)}nav a.l{transition:padding .4s var(--e),color .3s}nav a.l:hover{padding-left:10px;color:var(--o)}}
+.hero{padding-top:clamp(120px,11vw,150px)}.ph{padding-top:120px}.ph.nf{padding-top:110px}
+header:before{background:linear-gradient(180deg,#fff 0%,#fffaf6 100%);border:0;border-radius:0 0 20px 20px;box-shadow:inset 0 -1px 0 #f0d9c8,0 14px 34px -10px #0a0a0b26,0 22px 44px -22px #e85b1655;backdrop-filter:none;-webkit-backdrop-filter:none}
+header.sc:before{background:linear-gradient(180deg,#fffffffa 0%,#fffaf6fa 100%);box-shadow:inset 0 -1px 0 #f0d9c8,0 16px 36px -10px #0a0a0b33,0 24px 46px -22px #e85b1666}
+header:after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--o),#ffb27a 50%,var(--o));z-index:1;pointer-events:none}
+.hd:after{content:"";position:absolute;left:50%;bottom:0;width:64px;height:3px;border-radius:3px 3px 0 0;transform:translateX(-50%);background:var(--o);pointer-events:none}
+.logo{gap:14px}.logo:after{content:"Practical Skills\A Better Opportunities";white-space:pre;align-self:center;padding-left:12px;border-left:2px solid var(--o);font:600 .56rem/1.7 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--s)}
+html[lang=hi] .logo:after{content:"व्यावहारिक हुनर\A बेहतर मौके";letter-spacing:0;font-size:.62rem}
+@media(max-width:380px){.logo:after{display:none}}
+@media(min-width:1120px){.logo:after{display:none}.logo .wm{display:block;font-size:1.12rem;line-height:1.1;letter-spacing:-.02em;padding-left:14px;border-left:2px solid var(--o)}.logo .wm small{font-size:.64rem;letter-spacing:.2em;margin-top:4px;color:var(--o)}}
+@media(min-width:901px){nav a.l{font-weight:600;font-size:.95rem}nav a.l:hover{color:var(--o)}}
+nav .btn{padding:10px 20px;background:linear-gradient(135deg,var(--o),#f27a35);border-color:transparent;font-weight:600;letter-spacing:.01em;box-shadow:0 10px 24px #e85b1640,inset 0 1px 0 #ffffff40}nav .btn:hover{background:var(--k);border-color:var(--k);box-shadow:0 14px 30px #0a0a0b33}
+/* ===== FIX: header fit on 901-1119px (tablet / small laptop) ===== */
+@media(min-width:901px) and (max-width:1119px){
+.logo:after{display:none}
+nav a.l{padding:10px 10px}
+nav a.l:after{left:10px;right:10px}
+nav ul{gap:2px}
+nav .btn{margin-left:6px;padding:10px 16px}
+}
+
+/* ===== NAV v2: dropdowns (Course + Guides) ===== */
+nav li.dd{position:relative}
+nav li.dd>a.l{display:flex;align-items:center}
+.cv{display:inline-block;flex:none;width:6px;height:6px;margin:-3px 0 0 8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .35s var(--e)}
+nav .sub,nav .sub ul{list-style:none;margin:0;padding:0}
+nav .sub ul{display:block;flex-direction:column;gap:0}
+nav .sub li.col{display:block}
+nav .sub.two{align-items:start}
+nav .gh{display:block;padding:8px 14px 6px;font:700 .66rem var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--o)}
+nav .sub a{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:14px;color:var(--k);transition:background .25s,transform .3s var(--e),color .25s}
+nav .sub a b{font:700 .9rem/1.25 var(--fb);transition:color .25s}
+nav .sub a small{display:block;font:400 .75rem/1.35 var(--fb);color:var(--s);letter-spacing:0;text-transform:none;margin:0}
+nav .sub a:hover b,nav .sub a.on b{color:var(--o)}
+@media(min-width:901px){
+nav li.dd:hover>a.l .cv,nav li.dd:focus-within>a.l .cv{transform:rotate(225deg) translate(-2px,-2px)}
+nav .sub{display:block;position:absolute;top:calc(100% + 8px);left:-10px;min-width:340px;padding:10px;background:linear-gradient(180deg,#fff,#fffaf6);border:1px solid #f3d9c6;border-radius:22px;box-shadow:0 30px 70px #1a120a2b;opacity:0;visibility:hidden;transform:translateY(12px) scale(.97);transform-origin:top left;transition:opacity .3s var(--e),transform .45s var(--e),visibility 0s .45s;max-height:78vh!important;overflow-y:auto;z-index:20}
+nav .sub:before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+nav li.dd:hover>.sub,nav li.dd:focus-within>.sub,nav li.dd.open>.sub{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+nav .sub.two{display:grid;grid-template-columns:1fr 1fr;gap:4px;min-width:660px;left:auto;right:-40px;transform-origin:top right}
+nav .sub>li,nav .sub .col>ul>li{opacity:0;transform:translateY(8px);transition:opacity .35s var(--e),transform .5s var(--e)}
+nav li.dd:hover .sub li,nav li.dd:focus-within .sub li,nav li.dd.open .sub li{opacity:1;transform:none}
+nav .sub li:nth-child(2){transition-delay:.03s}nav .sub li:nth-child(3){transition-delay:.06s}nav .sub li:nth-child(4){transition-delay:.09s}nav .sub li:nth-child(5){transition-delay:.12s}nav .sub li:nth-child(6){transition-delay:.15s}nav .sub li:nth-child(7){transition-delay:.18s}
+nav .sub a:hover,nav .sub a.on{background:var(--ol);transform:translateX(4px)}
+}
+@media(max-width:900px){
+nav li.dd>a.l .cv{margin-left:auto;margin-right:6px}
+nav li.dd.open>a.l .cv{transform:rotate(225deg) translate(-2px,-2px)}
+nav .sub{position:static;display:block;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;background:none;padding:0;min-width:0;height:0;max-height:none;overflow:hidden;transition:none;contain:layout paint}
+nav .sub li:first-child{margin-top:4px}nav .sub li:last-child{margin-bottom:12px}
+nav>ul>li{contain:layout}
+nav .sub.two{display:block}
+nav .sub li{opacity:0;transform:translateX(-12px);transition:opacity .28s ease,transform .38s var(--e);will-change:opacity,transform}
+nav li.dd.open>.sub li{opacity:1;transform:none}
+nav li.dd.open>.sub li:nth-child(1){transition-delay:.05s}nav li.dd.open>.sub li:nth-child(2){transition-delay:.09s}nav li.dd.open>.sub li:nth-child(3){transition-delay:.13s}nav li.dd.open>.sub li:nth-child(4){transition-delay:.17s}nav li.dd.open>.sub li:nth-child(5){transition-delay:.21s}nav li.dd.open>.sub li:nth-child(6){transition-delay:.25s}nav li.dd.open>.sub li:nth-child(7){transition-delay:.29s}nav li.dd.open>.sub li:nth-child(8){transition-delay:.33s}
+nav .sub a{padding:10px 0 10px 14px;border-radius:0;border-left:2px solid #f3d9c6;margin-left:4px}
+nav .sub a b{font-size:1rem}
+nav .sub a:hover,nav .sub a.on{background:none;border-left-color:var(--o);transform:none}
+nav .gh{padding:12px 0 4px 18px}
+@keyframes navin{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+nav.open>ul>li{animation:navin .6s var(--e) both}
+nav.open>ul>li:nth-child(1){animation-delay:.10s}nav.open>ul>li:nth-child(2){animation-delay:.15s}nav.open>ul>li:nth-child(3){animation-delay:.20s}nav.open>ul>li:nth-child(4){animation-delay:.25s}nav.open>ul>li:nth-child(5){animation-delay:.30s}nav.open>ul>li:nth-child(6){animation-delay:.35s}nav.open>ul>li:nth-child(7){animation-delay:.40s}nav.open>ul>li:nth-child(8){animation-delay:.45s}nav.open>ul>li:nth-child(9){animation-delay:.50s}
+}
+@media(max-width:900px) and (prefers-reduced-motion:reduce){nav.open>ul>li{animation:none}nav .sub,nav .sub li{transition:none}}
+
+/* ===== page transitions ===== */
+@keyframes pgin{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+html.pgin main,html.pgin footer{animation:pgin .7s var(--e) both}
+html.pgin footer{animation-delay:.08s}
+main,footer{transition:opacity .28s ease,transform .32s ease}
+html.pgout main,html.pgout footer{opacity:0;transform:translateY(-18px)}
+html.pgout .fabs,html.pgout .mbar{opacity:0;transition:opacity .25s}
+@media(prefers-reduced-motion:reduce){html.pgin main,html.pgin footer{animation:none}html.pgout main,html.pgout footer{opacity:1;transform:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["EducationalOrganization", "LocalBusiness"], "name": "Saharsa Technical Training Centre", "url": "https://saharsa-technical-training-center.vercel.app/", "telephone": ["+91-7004074214", "+91-7739287877"], "image": "https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/sttc_logo.webp", "address": {"@type": "PostalAddress", "streetAddress": "Kahara Kutti, Bangaon Road", "addressLocality": "Saharsa", "addressRegion": "Bihar", "postalCode": "852201", "addressCountry": "IN"}}, {"@type": "Course", "name": "Refrigerator Repair Course in Saharsa", "description": "Learn fridge repair hands-on: cooling cycle, relay, thermostat and compressor testing, defrost systems and fault finding, guided by trainers in a real workshop.", "url": "https://saharsa-technical-training-center.vercel.app/refrigerator-repair-course-saharsa.html", "provider": {"@type": "EducationalOrganization", "name": "Saharsa Technical Training Centre", "sameAs": "https://saharsa-technical-training-center.vercel.app/"}, "timeRequired": "P2M", "inLanguage": ["hi", "en"], "offers": {"@type": "Offer", "price": "10000", "priceCurrency": "INR"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saharsa-technical-training-center.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Refrigerator Repair Course in Saharsa", "item": "https://saharsa-technical-training-center.vercel.app/refrigerator-repair-course-saharsa.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where can I learn refrigerator repair in Saharsa?", "acceptedAnswer": {"@type": "Answer", "text": "Saharsa Technical Training Centre is at Kahara Kutti, Bangaon Road, Saharsa 852201, Bihar. We teach refrigerator repair in a practical 2-month course."}}, {"@type": "Question", "name": "What is the refrigerator repair course fee?", "acceptedAnswer": {"@type": "Answer", "text": "Rs 10,000 without stay. With stay (room, bedsheet and utensils) it is Rs 12,000, or Rs 10,000 if you pay in one go."}}, {"@type": "Question", "name": "Is there a free demo class?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Attend the class for 3 days free, with no payment. Take admission only if you like the training."}}, {"@type": "Question", "name": "Do I learn other appliances too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The same 2-month course also covers AC, washing machine and geyser repair."}}, {"@type": "Question", "name": "Can I pay in two instalments?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With stay you can pay Rs 6,000 and then Rs 6,000, total Rs 12,000. The Rs 2,000 discount applies only on one-time payment."}}, {"@type": "Question", "name": "Do I need prior experience?", "acceptedAnswer": {"@type": "Answer", "text": "No. Anyone can join."}}, {"@type": "Question", "name": "Is food provided?", "acceptedAnswer": {"@type": "Answer", "text": "Utensils are provided and students cook their own food. Food is not served by the institute."}}]}]}</script>
 </head>
 <body>
 <div id="pg"></div>
-<header><div class="w hd">
-<a class="logo" href="https://saharsa-technical-training-center.vercel.app/" aria-label="Saharsa Technical Training Centre home"><img src="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/sttc_logo.webp" alt="Saharsa Technical Training Centre logo" width="120" height="60"><span>Saharsa Technical<small>Training Centre</small></span></a>
-<button id="mb" aria-label="Open menu" aria-expanded="false" aria-controls="nv"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button>
-<nav id="nv" aria-label="Main"><ul><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/">Home</a></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/about">About</a></li><li class="dd"><a class="l on" href="https://saharsa-technical-training-center.vercel.app/#/courses">Courses &#9662;</a><ul class="sub"><li><a href="https://saharsa-technical-training-center.vercel.app/#/courses">Full course (all 4 appliances)</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/ac-repair-course-saharsa.html">AC Repair Course</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/refrigerator-repair-course-saharsa.html" class="on" aria-current="page">Refrigerator Repair Course</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/washing-machine-repair-course-saharsa.html">Washing Machine Repair Course</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/geyser-water-heater-repair-course-saharsa.html">Geyser and Water Heater Repair Course</a></li></ul></li><li class="dd"><a class="l" href="https://saharsa-technical-training-center.vercel.app/home-appliance-repair-course-saharsa.html">Guides &#9662;</a><ul class="sub"><li><a href="https://saharsa-technical-training-center.vercel.app/home-appliance-repair-course-saharsa.html">Home Appliance Repair Course</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-fees-saharsa.html">Course Fees and Admission</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/technician-training-centre-saharsa.html">Technician Training Centre</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/how-to-become-ac-technician-bihar.html">How to Become an AC Technician</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-after-10th-12th-bihar.html">Course After 10th / 12th</a></li><li><a href="https://saharsa-technical-training-center.vercel.app/start-appliance-repair-shop-bihar.html">Start a Repair Shop</a></li></ul></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/alumni">Alumni</a></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/gallery">Gallery</a></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/contact">Contact</a></li><li><a class="btn" href="https://saharsa-technical-training-center.vercel.app/#/contact">Enquire Now</a></li></ul></nav></div></header>
+<header><div class="tb"><div class="w"><a class="tl" href="https://www.google.com/maps?daddr=Bangaon+Rd,+kutti,+Kahra,+Saharsa,+Bihar+852202" target="_blank" rel="noopener">Kahara Kutti, Bangaon Road, Saharsa 852201</a><span class="trr"><a href="tel:+917004074214">7004074214</a><a href="tel:+917739287877">7739287877</a></span></div></div><div class="w hd"><a class="logo" href="https://saharsa-technical-training-center.vercel.app/" aria-label="Saharsa Technical Training Centre home"><img src="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/sttc_logo.webp" alt="Saharsa Technical Training Centre logo" width="120" height="60" fetchpriority="high"><span class="wm">Saharsa Technical<small>Training Centre</small></span></a><button class="lg lg-m" type="button" data-lg aria-label="Change language / भाषा बदलें">हिं</button><button id="mb" aria-label="Open menu" aria-expanded="false" aria-controls="nv"><svg class="i m" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg><svg class="i x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><nav id="nv" aria-label="Main"><ul><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/"><span>Home</span></a></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/about"><span>About</span></a></li><li class="dd"><a class="l on" href="https://saharsa-technical-training-center.vercel.app/#/courses"><span>Course</span><i class="cv"></i></a><ul class="sub"><li class="gh">Course</li><li><a href="https://saharsa-technical-training-center.vercel.app/#/courses"><b>Full course: 4 appliances</b><small>AC, fridge, washing machine and geyser in 2 months</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/ac-repair-course-saharsa.html"><b>AC Repair Course</b><small>Split AC parts, gas charging, servicing</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/refrigerator-repair-course-saharsa.html" class="on" aria-current="page"><b>Refrigerator Repair Course</b><small>Cooling cycle, relays, thermostat, compressor</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/washing-machine-repair-course-saharsa.html"><b>Washing Machine Repair Course</b><small>Motor, belt, drain pump, control board</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/geyser-water-heater-repair-course-saharsa.html"><b>Geyser Repair Course</b><small>Heating element, thermostat, safe wiring</small></a></li></ul></li><li class="dd"><a class="l" href="https://saharsa-technical-training-center.vercel.app/home-appliance-repair-course-saharsa.html"><span>Guides</span><i class="cv"></i></a><ul class="sub two"><li class="col"><span class="gh">Guides</span><ul><li><a href="https://saharsa-technical-training-center.vercel.app/home-appliance-repair-course-saharsa.html"><b>Home Appliance Repair Course</b><small>The full 2-month course: AC, fridge, washing machine and geyser in one place.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-fees-saharsa.html"><b>Course Fees and Admission</b><small>Clear fee plans, what is included, payment options and admission steps.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/technician-training-centre-saharsa.html"><b>Technician Training Centre</b><small>An 8-point checklist to choose a technician training centre, and how we match it.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/how-to-become-ac-technician-bihar.html"><b>How to Become an AC Technician</b><small>Step-by-step guide: skills, tools, common faults and where to start.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-after-10th-12th-bihar.html"><b>Course After 10th / 12th</b><small>Who can join, how it differs from ITI and diploma, and what parents ask.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/start-appliance-repair-shop-bihar.html"><b>Start a Repair Shop</b><small>A practical checklist: skills, tools, spare parts, pricing and customer trust.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-with-stay-saharsa.html"><b>Course With Stay</b><small>Room, bedsheet and utensils included. See how stay works for students from other districts.</small></a></li></ul></li><li class="col"><span class="gh">Repair tips</span><ul><li><a href="https://saharsa-technical-training-center.vercel.app/refrigerator-not-cooling-reasons-and-fixes.html"><b>Fridge Not Cooling: Causes</b><small>Safe checks, common causes and when to call a technician.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/washing-machine-problems-and-solutions.html"><b>Washing Machine Problems</b><small>Not spinning, not draining, vibrating or leaking: causes and checks.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/geyser-not-heating-problems-and-safety.html"><b>Geyser Not Heating</b><small>Why a geyser stops heating, and the safety rules everyone should follow.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/ac-service-and-maintenance-tips-bihar.html"><b>AC Maintenance Tips</b><small>A simple checklist to keep your AC cooling well through summer and monsoon.</small></a></li><li><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-tools-list-for-beginners.html"><b>Repair Tools for Beginners</b><small>Which tools to learn first, what each one is used for and safety gear.</small></a></li></ul></li></ul></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/alumni"><span>Alumni</span></a></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/gallery"><span>Gallery</span></a></li><li><a class="l" href="https://saharsa-technical-training-center.vercel.app/#/contact"><span>Contact</span></a></li><li><a class="btn" href="https://saharsa-technical-training-center.vercel.app/#/contact">Enquire Now</a></li><li class="lg-d"><button class="lg lg-d" type="button" data-lg aria-label="Change language / भाषा बदलें">हिं</button></li></ul></nav></div></header>
 <div id="sc"></div>
 <main>
 <section class="hero"><div class="w hg"><div>
@@ -493,7 +719,7 @@ html.lite .cring{display:none}
 </div>
 <div class="hf"><div class="badge" aria-hidden="true"><svg class="t" viewBox="0 0 100 100"><defs><path id="cp" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text><textPath href="#cp" textLength="236" lengthAdjust="spacing">PRACTICAL TRAINING • SAHARSA BIHAR •</textPath></text></svg><b><svg class="i" viewBox="0 0 24 24" style="color:#fff;width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></div><div class="p"><img fetchpriority="high" decoding="async" src="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/refrigerator-appliance-training.webp" alt="Refrigerator Repair Course in Saharsa training photo" width="1672" height="941" onload="this.parentNode.classList.add('ldd')" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/refrigerator-appliance-training.png'}else{this.style.visibility='hidden'}"></div></div>
 </div></section>
-<div class="w cinfo"><div class="stl rv z"><small>Duration</small><b>2 months</b></div><div class="stl rv z"><small>Fee</small><b>From Rs 10,000</b></div><div class="stl rv z"><small>Eligibility</small><b>Anyone can join</b></div><div class="stl rv z"><small>Batch timing</small><b>7 AM - 11 AM</b></div></div>
+<div class="w cinfo"><div class="stl rv z"><small>Duration</small><b>2 months</b></div><div class="stl rv z"><small>Fee</small><b>From Rs 10,000</b></div><div class="stl rv z"><small>Eligibility</small><b>Anyone can join</b></div><div class="stl rv z"><small>Batch timing</small><b>9 AM - 12 PM</b></div></div>
 <div class="mq" aria-hidden="true"><div><span>Air Conditioning Repair</span><span>Refrigerator Repair</span><span>Washing Machine Repair</span><span>Geyser and Water Heater Repair</span><span>Air Conditioning Repair</span><span>Refrigerator Repair</span><span>Washing Machine Repair</span><span>Geyser and Water Heater Repair</span><span>Air Conditioning Repair</span><span>Refrigerator Repair</span><span>Washing Machine Repair</span><span>Geyser and Water Heater Repair</span><span>Air Conditioning Repair</span><span>Refrigerator Repair</span><span>Washing Machine Repair</span><span>Geyser and Water Heater Repair</span></div></div>
 <section class="sx"><div class="w"><div class="sg"><div class="sn rv z"><b><span data-n="2">0</span></b><small>Months</small></div><div class="sn rv z"><b><span data-n="4">0</span></b><small>Appliances</small></div><div class="sn rv z"><b><span data-n="3">0</span></b><small>Days free demo</small></div><div class="sn rv z"><b><span data-n="360">0</span>+</b><small>Students trained</small></div></div></div></section>
 <section><div class="w two">
@@ -545,7 +771,7 @@ html.lite .cring{display:none}
 <footer><div class="w"><div class="fg">
 <div><div class="flogo"><img src="https://cdn.jsdelivr.net/gh/diloyt1256/saharsa-training-assets@01df44e/sttc_logo.webp" alt="Saharsa Technical Training Centre logo" width="144" height="72" loading="lazy"></div><p>Practical home-appliance repair training in Saharsa, Bihar, India.</p><a href="tel:+917004074214">Call: 7004074214</a><a href="tel:+917739287877">Call: 7739287877</a><a href="https://www.google.com/maps?daddr=Bangaon+Rd,+kutti,+Kahra,+Saharsa,+Bihar+852202" target="_blank" rel="noopener">Kahara Kutti, Bangaon Road, Saharsa 852201, Bihar</a></div>
 <div><h3>Course</h3><a href="https://saharsa-technical-training-center.vercel.app/#/courses">AC, Fridge, Washing Machine and Geyser Course</a><a href="https://saharsa-technical-training-center.vercel.app/ac-repair-course-saharsa.html">AC Repair Course in Saharsa</a><a href="https://saharsa-technical-training-center.vercel.app/refrigerator-repair-course-saharsa.html">Refrigerator Repair Course in Saharsa</a><a href="https://saharsa-technical-training-center.vercel.app/washing-machine-repair-course-saharsa.html">Washing Machine Repair Course in Saharsa</a><a href="https://saharsa-technical-training-center.vercel.app/geyser-water-heater-repair-course-saharsa.html">Geyser and Water Heater Repair Course in Saharsa</a></div>
-<div><h3>Guides</h3><a href="https://saharsa-technical-training-center.vercel.app/home-appliance-repair-course-saharsa.html">Home Appliance Repair Course</a><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-fees-saharsa.html">Course Fees and Admission</a><a href="https://saharsa-technical-training-center.vercel.app/technician-training-centre-saharsa.html">Technician Training Centre</a><a href="https://saharsa-technical-training-center.vercel.app/how-to-become-ac-technician-bihar.html">How to Become an AC Technician</a><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-after-10th-12th-bihar.html">Course After 10th / 12th</a><a href="https://saharsa-technical-training-center.vercel.app/start-appliance-repair-shop-bihar.html">Start a Repair Shop</a></div>
+<div><h3>Guides</h3><a href="https://saharsa-technical-training-center.vercel.app/home-appliance-repair-course-saharsa.html">Home Appliance Repair Course</a><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-fees-saharsa.html">Course Fees and Admission</a><a href="https://saharsa-technical-training-center.vercel.app/technician-training-centre-saharsa.html">Technician Training Centre</a><a href="https://saharsa-technical-training-center.vercel.app/how-to-become-ac-technician-bihar.html">How to Become an AC Technician</a><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-after-10th-12th-bihar.html">Course After 10th / 12th</a><a href="https://saharsa-technical-training-center.vercel.app/start-appliance-repair-shop-bihar.html">Start a Repair Shop</a><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-course-with-stay-saharsa.html">Course With Stay</a></div><div><h3>Repair Tips</h3><a href="https://saharsa-technical-training-center.vercel.app/refrigerator-not-cooling-reasons-and-fixes.html">Fridge Not Cooling: Causes</a><a href="https://saharsa-technical-training-center.vercel.app/washing-machine-problems-and-solutions.html">Washing Machine Problems</a><a href="https://saharsa-technical-training-center.vercel.app/geyser-not-heating-problems-and-safety.html">Geyser Not Heating</a><a href="https://saharsa-technical-training-center.vercel.app/ac-service-and-maintenance-tips-bihar.html">AC Maintenance Tips</a><a href="https://saharsa-technical-training-center.vercel.app/appliance-repair-tools-list-for-beginners.html">Repair Tools for Beginners</a></div>
 <div><h3>Explore</h3><a href="https://saharsa-technical-training-center.vercel.app/">Home</a><a href="https://saharsa-technical-training-center.vercel.app/#/about">About Us</a><a href="https://saharsa-technical-training-center.vercel.app/#/alumni">Our Alumni</a><a href="https://saharsa-technical-training-center.vercel.app/#/gallery">Gallery</a><a href="https://saharsa-technical-training-center.vercel.app/#/contact">Contact</a><a href="https://saharsa-technical-training-center.vercel.app/#/privacy">Privacy Policy</a></div>
 </div><small>&copy; <span id="yr"></span> Saharsa Technical Training Centre. All rights reserved.</small></div></footer>
 <div class="fabs"><a href="https://wa.me/917004074214" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="i" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M21 12a8 8 0 0 1-11.7 7L3 21l2-5.3A8 8 0 1 1 21 12z"/></svg></a><a class="c" href="tel:+917004074214" aria-label="Call 7004074214"><svg class="i" viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a></div><div class="mbar" role="navigation" aria-label="Quick actions"><a class="c" href="tel:+917004074214"><svg class="i" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>Call</span></a><a href="https://wa.me/917004074214" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.7 7L3 21l2-5.3A8 8 0 1 1 21 12z"/></svg><span>WhatsApp</span></a><a class="e" href="https://saharsa-technical-training-center.vercel.app/#/contact"><svg class="i" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.7 7L3 21l2-5.3A8 8 0 1 1 21 12z"/></svg><span>Enquire</span></a></div>
@@ -599,9 +825,9 @@ let lx=null;lb.addEventListener("touchstart",e=>{lx=e.touches[0].clientX},{passi
 document.addEventListener("keydown",e=>{if(lb.classList.contains("open")){if(e.key==="ArrowLeft")st(-1);if(e.key==="ArrowRight")st(1)}});
 /* videos: load YouTube only on click */
 $$("[data-yt]").forEach(b=>b.onclick=()=>{const f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+b.dataset.yt+"?autoplay=1&rel=0";f.title=b.dataset.ttl||"Video";f.allow="autoplay; encrypted-media; picture-in-picture";f.allowFullscreen=true;b.onclick=null;b.replaceChildren(f);b.style.backgroundImage="none";b.style.cursor="default"});
-/* admission countdown (always ADM.days days from today) */
-const ADM={"days": 15, "seats": 6, "total": 20};
-function cdTick(){const n=new Date(),e=new Date(n.getFullYear(),n.getMonth(),n.getDate()+ADM.days,23,59,59),ms=Math.max(0,e-n),fd=x=>x.toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"}),
+/* admission countdown: fixed batch closing date (ADM.close); rolls forward by ADM.days once it has passed */
+const ADM={"days": 15, "seats": 6, "total": 20, "close": "2026-10-09T23:59:59+05:30"};
+function cdTick(){const n=new Date(),F=new Date(ADM.close),e=F>n?F:new Date(n.getFullYear(),n.getMonth(),n.getDate()+ADM.days,23,59,59),ms=Math.max(0,e-n),fd=x=>x.toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"}),
 v={d:Math.floor(ms/864e5),h:Math.floor(ms%864e5/36e5),m:Math.floor(ms%36e5/6e4),s:Math.floor(ms%6e4/1e3),date:fd(e),start:fd(new Date(e.getTime()+864e5))};
 $$("[data-cd]").forEach(x=>{const r=v[x.dataset.cd];x.textContent=typeof r==="number"?String(r).padStart(2,"0"):r})}
 cdTick();setInterval(cdTick,1000);
@@ -634,6 +860,12 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 if(FPm&&!RMm){document.addEventListener("pointermove",e=>{const b=e.target.closest&&e.target.closest(".btn");if(b&&!b.closest(".scta")){const r=b.getBoundingClientRect();b.style.translate=((e.clientX-r.left-r.width/2)*.1)+"px "+((e.clientY-r.top-r.height/2)*.16)+"px";lastMag=b}else if(lastMag){lastMag.style.translate="";lastMag=null}})}
 addEventListener("scroll",()=>{const b=document.getElementById("scta");if(!b)return;const f=document.querySelector("footer"),nf=f&&f.getBoundingClientRect().top<innerHeight+40;let g=false;try{g=sessionStorage.getItem("sttc:scta")==="1"}catch(e){}b.classList.toggle("show",scrollY>700&&!nf&&!g)},{passive:true})}
 
+(function(){try{
+var h=document.querySelector("header"),de=document.documentElement,ly=scrollY,tk=0;
+function mob(){return innerWidth<=900}
+addEventListener("scroll",function(){if(tk)return;tk=1;requestAnimationFrame(function(){tk=0;var y=scrollY;if(h&&mob()&&!de.classList.contains("lk")){if(y>140&&y>ly+6)h.classList.add("hh");else if(y<ly-6||y<80)h.classList.remove("hh")}ly=y})},{passive:true});
+document.addEventListener("pointerdown",function(e){var b=e.target.closest&&e.target.closest(".btn");if(!b||matchMedia("(prefers-reduced-motion:reduce)").matches)return;var r=b.getBoundingClientRect(),s=document.createElement("i");s.className="rpl";var d=Math.max(r.width,r.height)*1.6;s.style.cssText="width:"+d+"px;height:"+d+"px;left:"+(e.clientX-r.left-d/2)+"px;top:"+(e.clientY-r.top-d/2)+"px";b.appendChild(s);setTimeout(function(){s.remove()},650)},{passive:true});
+}catch(e){}})();
 /* ===== FX: aura, card spotlight, hero depth (desktop pointer only) ===== */
 (function(){if(window.__fx)return;window.__fx=1;
 var FP=matchMedia("(hover:hover) and (pointer:fine)").matches,RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -654,6 +886,43 @@ var h=t.closest(".hero");if(h){var q=h.getBoundingClientRect();h.style.setProper
 document.addEventListener("pointerleave",function(){a.classList.remove("on");ring.classList.remove("on");first=1});
 })();
 
+
+/* ===== shell: mobile accordion, page transitions, prefetch ===== */
+(function(){
+var de=document.documentElement,RMq=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function mob(){return matchMedia("(max-width:900px)").matches}
+function setOpen(li,o){var s=li.querySelector(":scope>.sub");li.classList.toggle("open",o);if(!s)return;if(!mob()){s.style.height="";s.style.maxHeight="";return}var f=s.getBoundingClientRect().height;if(s._a){s._a.cancel();s._a=null}s.style.maxHeight="none";s.style.height="auto";var t=o?s.scrollHeight:0;s.style.height=t+"px";if(Math.abs(f-t)<1)return;try{s._a=s.animate([{height:f+"px"},{height:t+"px"}],{duration:o?360:280,easing:"cubic-bezier(.32,.72,.24,1)"});s._a.onfinish=function(){s._a=null}}catch(e){}}
+function closeAll(x){document.querySelectorAll("nav li.dd.open").forEach(function(l){if(l!==x)setOpen(l,false)})}
+document.addEventListener("click",function(e){
+var a=e.target.closest&&e.target.closest("nav li.dd>a.l");
+if(!a)return;
+if(!mob()&&!matchMedia("(hover:none)").matches)return;
+e.preventDefault();e.stopImmediatePropagation();
+var li=a.parentNode,o=!li.classList.contains("open");closeAll(li);setOpen(li,o);
+if(o&&mob())setTimeout(function(){var n=document.getElementById("nv"),r=li.getBoundingClientRect(),nr=n.getBoundingClientRect();if(r.bottom>nr.bottom-20)n.scrollTo({top:n.scrollTop+(r.bottom-nr.bottom)+140,behavior:"smooth"})},60)
+},true);
+var nv0=document.getElementById("nv");
+if(nv0&&window.MutationObserver)new MutationObserver(function(){de.classList.toggle("lk",nv0.classList.contains("open"));if(!nv0.classList.contains("open"))setTimeout(function(){if(!nv0.classList.contains("open"))closeAll(null)},450)}).observe(nv0,{attributes:true,attributeFilter:["class"]});
+addEventListener("resize",function(){if(!mob())document.querySelectorAll("nav .sub").forEach(function(s){s.style.maxHeight="";s.style.height=""})});
+function pageLink(a){
+if(!a||a.hasAttribute("download")||(a.target&&a.target!=="_self"))return false;
+var u;try{u=new URL(a.href,location.href)}catch(x){return false}
+if(u.protocol!=="http:"&&u.protocol!=="https:")return false;
+if(u.origin!==location.origin)return false;
+return u.pathname.replace(/index\.html$/,"")!==location.pathname.replace(/index\.html$/,"")}
+var pre={},pn=0;
+function prefetch(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||!pageLink(a)||pre[a.href]||pn>10)return;pre[a.href]=1;pn++;var l=document.createElement("link");l.rel="prefetch";l.href=a.href;document.head.appendChild(l)}
+document.addEventListener("pointerover",prefetch,{passive:true});document.addEventListener("touchstart",prefetch,{passive:true});
+document.addEventListener("click",function(e){
+if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||RMq)return;
+var a=e.target.closest&&e.target.closest("a[href]");if(!pageLink(a))return;
+e.preventDefault();de.classList.add("pgout");
+try{sessionStorage.setItem("sttc:pgin","1")}catch(x){}
+setTimeout(function(){location.href=a.href},300)});
+addEventListener("pageshow",function(ev){if(ev.persisted)de.classList.remove("pgout")});
+})();
+
+(function(){var l="en";try{l=localStorage.getItem("sttc:lang")==="hi"?"hi":"en"}catch(e){}document.querySelectorAll("[data-lg]").forEach(function(b){b.textContent=l==="hi"?"EN":"हिं"});document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-lg]");if(!b)return;try{localStorage.setItem("sttc:lang",l==="hi"?"en":"hi")}catch(x){}location.href="https://saharsa-technical-training-center.vercel.app/"})})();
 if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 proEnh({"c1b": "2 months", "c1s": "Practical course", "c2b": "4 appliances", "c2s": "One single course", "t": "Free 3-day demo class", "s": "No payment. Admission only if you like it", "call": "Call 7004074214", "wa": "https://wa.me/917004074214?text=Hello%2C%20I%20would%20like%20to%20join%20the%203-day%20free%20demo%20for%20the%20refrigerator%20repair%20course.", "x": "Close"});</script>
 </body>
